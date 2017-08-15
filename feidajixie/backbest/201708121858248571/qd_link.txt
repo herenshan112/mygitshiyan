@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `#^@_link`;
+CREATE TABLE `#^@_link` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL COMMENT '链接名称',
+  `linkurl` varchar(150) DEFAULT NULL COMMENT '链接地址',
+  `images` varchar(255) DEFAULT NULL COMMENT '链接图标',
+  `linkcont` mediumtext COMMENT '链接描述',
+  `linkset` int(1) NOT NULL DEFAULT '1' COMMENT '是否开启',
+  `time` int(50) NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `lnk_uid` int(11) NOT NULL DEFAULT '0' COMMENT '写入人',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接';
+INSERT INTO `#^@_link` (id,title,linkurl,images,linkcont,linkset,time,lnk_uid) VALUES ('1','百度','http://www.baidu.com','2017_08_08/20170808085425480104.png','百度','1','1502153668','0');
+

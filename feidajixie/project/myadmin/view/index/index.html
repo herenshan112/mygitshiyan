@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网站管理系统</title>
+		<link rel="stylesheet" href="/public/admin/css/css.css" />
+		<link rel="stylesheet" href="/public/admin/css/icon/font-awesome.css" />
+		<link rel="stylesheet" href="/public/admin/css/publics.css" />
+		<script type="text/javascript" src="/public/admin/js/jquery-2.1.1.min.js" ></script>
+		<script type="text/javascript" src="/public/admin/js/js.js" ></script>
+	</head>
+	<body>
+		<div class="control_body">
+			
+			<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-19
+            	描述：左侧
+            -->
+            <div class="control_left">
+            	
+            	{include file='index/left'}
+            	
+            </div>
+			
+			<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-19
+            	描述：右侧
+            -->
+            <div class="control_right">
+            	<div class="control_right_top">
+            		<nav class="control_rt_left"><i class="icon-th-large win_buttion"></i></nav>
+            		<ul class="control_rt_right">
+            			<!--<li>
+            				<span class="control_xj">25</span><br>
+            				<i class="icon-envelope control_xj_icon"></i>
+            			</li>
+            			<li>
+            				<span class="control_tz">25</span><br>
+            				<i class=" icon-comments control_xj_icon"></i>
+            			</li>-->
+            			<li>
+            				<a title="退出" class="icon-signout exit_top" href="{:url('index/exitlogin')}">退出</a>
+            			</li>
+            		</ul>
+            	</div>
+            	<!--<div class="control_right_cont">
+            		<span class="icon-step-backward left_buttion"></span>
+            		<nav class="page_tabs">
+            			<div class="page-tabs-content">
+	                        <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+	                        <a href="javascript:;" class=" J_menuTab" data-id="index_v1.html">首页1<i class="icon-remove-circle but_close"></i></a>
+	                        
+	                    </div>
+            		</nav>
+            		<span class="icon-step-forward right_buttion"></span>
+            		<span class="icon-indent-right right_buttion_es"></span>
+            	</div>-->
+            	
+            	
+            	<div class="content-tabs control_right_cont">
+		            <button class="roll-nav roll-left J_tabLeft icon-step-backward" style="border-right: 1px solid #ccc;"></button>
+		            <div class="page-tabs J_menuTabs">
+		                <div class="page-tabs-content" style="margin-left: 0px;">
+		                    <a href="javascript:;" class="J_menuTab active" data-id="0">首页</a>
+		               </div>
+		            </div>
+		            <button class="icon-step-forward roll-nav roll-right J_tabRight"></button>
+		            <span class="icon-indent-right right_buttion_es roll-nav "></span>
+		        </div>
+		        
+            	<div class="J_mainContent">
+		        	<iframe class="J_iframe" name="iframe0" id="iframe0" width="100%" height="100%" src="{:url('main')}" frameborder="0" data-id="0" seamless></iframe>
+		        </div>
+		        
+            </div>
+			
+			
+			
+		</div>
+	</body>
+</html>

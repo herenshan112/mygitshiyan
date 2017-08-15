@@ -1,0 +1,79 @@
+<!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：删除资料
+	        -->
+	        <div class="control_pf_body" id="deltcont" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('deltcont')" onmousedown="addzindex('deltcont')">
+					<span>删除资料</span>
+					<em class="icon-remove" onclick="deltehidediv('deltcont','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="delt_tishi" id="echo_val">
+        				<em class="icon-remove-circle icon-5x"></em>
+        				<span>
+        					你是否真的要执行删除操作？<br>
+        					资料一经删除，将不可恢复！<br>
+        					<i>请确认无误！请慎重操作!</i>
+        				</span>
+        			</div>
+        			<div class="delt_buttion">
+        				<input type="hidden" name='delteid' id='delteid' value="" />
+        				<input type="hidden" name='delteurl' id='delteurl' value="" />
+        				<span class="determine" onclick="delteall()">确定</span>
+        				<span class="cancel right_yidong" onclick="deltehidediv('deltcont','fukj')">取消</span>
+        			</div>
+        		
+        		</div>
+        	</div>
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2017-08-07
+            	描述：消息提示
+            -->
+            <div class="control_pf_body" id="xiaoxitishi" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('xiaoxitishi')" onmousedown="addzindex('xiaoxitishi')">
+					<span>消息提示</span>
+					<em class="icon-remove" onclick="deltehidediv('xiaoxitishi','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="delt_tishi" id="echo_val">
+        				<em class="icon-exclamation-sign icon-5x" style="color: #EC971F;"></em>
+        				<span id="xxtscont">
+        					你是否真的要执行操作？<br>
+        				</span>
+        			</div>
+        			<div class="delt_buttion">
+        				<input type="hidden" name='tishiid' id='tishiid' value="" />
+        				<input type="hidden" name='tishiurl' id='tishiurl' value="" />
+        				<span class="determine" onclick="huanyuanall()">确定</span>
+        				<span class="cancel right_yidong" onclick="deltehidediv('xiaoxitishi','fukj')">取消</span>
+        			</div>
+        		
+        		</div>
+        	</div>
+            
+
+			<!--
+            	作者：herenshan112@163.com
+            	时间：2017-08-07
+            	描述：消息提示没有操作
+            -->
+            <div class="control_pf_body" id="xxtsmycz" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('xxtsmycz')" onmousedown="addzindex('xxtsmycz')">
+					<span>消息提示</span>
+					<em class="icon-remove" onclick="deltehidediv('xxtsmycz','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="delt_tishi" id="echo_val">
+        				<em class="icon-exclamation-sign icon-5x" style="color: #EC971F;"></em>
+        				<span id="xxtsmczcont">
+        					你是否真的要执行操作？<br>
+        				</span>
+        			</div>
+        			<div class="delt_buttion">
+        				<span class="cancel right_yidong" onclick="xxtsshuaxin('xiaoxitishi','fukj')">确定</span>
+        			</div>
+        		
+        		</div>
+        	</div>

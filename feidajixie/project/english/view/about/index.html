@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head' /}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner' /}
+		</div>
+		
+		<!--新闻列表 头部-->
+		<div class="news-list-con">
+			<div class="news-list-nav">
+				<div class="news-list-nav-box">
+					<ul>
+						<li class="active"><a href="#mao1">Company profile</a></li>
+						<li><a href="#mao2">Service</a></li>
+						<li><a href="#mao3">Promise</a></li>
+					</ul>
+				</div>
+				</div>
+				
+				<!--新闻列表-->
+				<div class="news-list">
+					<div class="news-list-box">
+						<div class="ab_title"><a name='mao1'></a>Company Profile</div>
+						<div class="ad_cont">
+							{$qyjj.pty_cont}
+						</div>
+						
+						<div class="ad_img">
+							{volist name='cfcmls' id='cfcmls'}
+							<a href=""><img src="{neq name='cfcmls.cn_smallimg' value=''}/upload/images/{$cfcmls.cn_smallimg}{else /}/public/index/images/33.png{/neq}"></a>
+							{/volist}
+						</div>
+					</div>
+					
+					<div class="jszc_div">
+						<div class="ab_title" style="height: 60px; line-height: 70px; color: #2b3b96;"><a name='mao2'></a>Technical Service</div>
+						<div class="text_jszc">
+							{$jsfwval.pty_cont}
+						</div>
+						<div class="jszc_an"><a href="{:url('/index/product')}"><img src="/public/index/images/12.png"></a></div>
+					</div>
+					
+					
+					
+					<div class="news-list-box">
+						<div class="ab_title"><a name='mao1'></a>What can we bring you?？</div>
+						<div class="ad_cont">
+							{volist name='prodls' id='prodls'}
+							<a href="{:url('product/details',array('id'=>$prodls['cn_id']))}">
+								<div class="ab_prod">
+									<img src="{neq name='prodls.cn_smallimg' value=''}/upload/images/{$prodls.cn_smallimg}{else /}/public/index/images/33.png{/neq}">
+									<span>{$prodls.cn_title}</span>
+									<p>{php}echo msubstr($prodls['cn_descr'],0,50){/php}</p>
+								</div>
+							</a>
+							{/volist}
+							
+							
+						</div>
+						
+						<div class="ab_cn_div">
+							<a name="mao3"><img src="/public/index/images/13.png"></a>
+						</div>
+						<div class="ad_cont">
+							{$lxcnval.pty_cont}
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			
+			
+		</div>
+	
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+		
+	</body>
+</html>

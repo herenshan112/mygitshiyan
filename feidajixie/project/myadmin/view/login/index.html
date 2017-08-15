@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录-网站管理系统</title>
+		{include file='public/css_js' /}
+		<link href="/Public/admin/css/login_css.css" rel="stylesheet" type="text/css">
+		<script>
+		document.onkeydown = keydown;
+
+        function keydown(e) 
+
+        {
+
+           var currKey=0,e=e||event; 
+
+           currKey=e.keyCode||e.which||e.charCode;//支持IE、FF 
+
+           if (currKey == 13){
+
+                if(event){
+
+                    e.returnValue = false; 
+
+                }else{                    
+
+                    e.preventDefault();
+
+                }          
+
+                document.getElementById("logclick").click();
+
+           }
+
+        }
+</script>
+	</head>
+	<body>
+		<div id="backcont" class="backdivimg">
+
+
+<div class="login_kj" id="loginwkj">
+	<div class="login_txt1"><input type="text" name="usename" id="usename" value="请输入用户名" onfocus="this.value='';" onblur="if(!value) {value=defaultValue; this.type='text';}" onkeyup="jmpusval()"></div>
+    <div class="login_txt2"><input type="text" name="pwdadmin" id="pwdadmin" value="请输入密码" onfocus="if(this.value==defaultValue) {this.value='';this.type='password'}" onblur="if(!value) {value=defaultValue; this.type='text';}" onkeyup="jumpwdlog()"><label id="loginbuttion"><span id='logclick' >&nbsp;</span></label></div>
+    <div class="login_txt3" id="captcha-container">
+    <input type="text" name="chose" id="chose" value="" placeholder="请输入验证码" onFocus="this.select();" onkeyup="yxzmc()"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" /><img alt="验证码" src="{:url('login/yzmcode')}" title="点击刷新" onclick="anniu()">
+    
+    </div>
+    <div class="login_txt4"><span id="loginsky1"></span></div>
+</div>
+
+
+</div>
+<script>
+loginload();
+</script>
+	</body>
+</html>

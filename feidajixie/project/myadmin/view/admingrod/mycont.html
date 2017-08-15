@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改个人资料</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('admingrod/mycont',array('action'=>'myeitecont','id'=>$id))}">
+						
+						<div class="webset_input_text">
+							<span>姓名：</span>
+							<input type="text" name="callname" id="callname" placeholder="请输入用户名" value="{$list.ada_name}">
+							<em><i class="icon-exclamation-sign"></i>请输入用户名</em>
+						</div>
+						<div class="webset_input_text">
+							<span>联系电话：</span>
+							<input type="text" name="calltel" id="calltel" placeholder="请输入联系电话" value="{$list.ada_tel}">
+							<em><i class="icon-exclamation-sign"></i>请输入联系电话</em>
+						</div>
+						<div class="webset_input_text">
+							<span>QQ：</span>
+							<input type="text" name="qqnum" id="qqnum" placeholder="请输入QQ" value="{$list.ada_qq}">
+							<em><i class="icon-exclamation-sign"></i>请输入QQ</em>
+						</div>
+						<div class="webset_input_text">
+							<span>E-mail：</span>
+							<input type="text" name="email" id="email" placeholder="请输入E-mail" value="{$list.ada_email}">
+							<em><i class="icon-exclamation-sign"></i>请输入E-mail</em>
+						</div>
+						<div class="webset_input_text">
+							<span>联系地址：</span>
+							<input type="text" name="address" id="address" placeholder="请输入联系地址" value="{$list.ada_address}">
+							<em><i class="icon-exclamation-sign"></i>请输入联系地址</em>
+						</div>
+						<div class="webset_upimg_text">
+							<span>头像：</span>
+							<input type="text" name="smlpicval" id="smlpicval" placeholder="请上传封面图" value="{$list.ada_imgpic}">
+							<em onclick="getElementById('upimgtoux').click()">&nbsp;</em>
+							<a class="webset_a"><img id="smlpiclook" src="{neq name='list.ada_imgpic' value=''}/upload/vip/{$list.ada_imgpic}{else /}/public/admin/images/20.png{/neq}" alt="上传图片" /></a>
+							<h2 id="uppic_error_sml"></h2>
+							<input type="file" multiple="upimgtoux" id="upimgtoux" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="upimgtouxty" id="upimgtouxty" value="6"> 
+						</div>
+						<div class="webset_textarea">
+							<span>管理员简介：</span>
+							<textarea name="content" id="content" class="gao_du_textarea">{$list.ada_cont}</textarea>
+						</div>
+						
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

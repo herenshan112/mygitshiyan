@@ -1,0 +1,126 @@
+<!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：修改窗口
+	        -->
+	        
+        	<div class="control_pf_body" id="eitegrd" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('eitegrd')" onmousedown="addzindex('eitegrd')">
+					<span>修改权限信息</span>
+					<em class="icon-remove" onclick="hidediv('eitegrd','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<form method="post" name="webset" id="webset" action="">
+						<div class="pf_input_text">
+							<span>权限名称：</span>
+							<input type="text" name="etajname" id="etajname" placeholder="请输入权限名称" value="">
+							<input type="hidden" name="etajoldname" id="etajoldname" placeholder="请输入权限名称" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入权限名称</em>
+						</div>
+						<div class="pf_textarea">
+							<span>权限描述：</span>
+							<textarea name="ejatcont" id="ejatcont" class="gao_du_textarea"></textarea>
+						</div>
+						<div class='pf_radio' id="ejatztclz">
+							<span>状态：</span>
+							<input type="radio" name="ejatsetval" id="ejatsetval" value="1" checked>
+							<em>开启</em>
+							<input type="radio" name="ejatsetval" id="ejatsetval" value="0" >
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="hidden" name='eiteid' id='eiteid' value="" />
+        					<input type="hidden" name='eiteurl' id='eiteurl' value="" />
+							<input type="button" value="确认提交" onclick="eiteajaxgadcon()" />
+						</div>
+					</form>
+        		</div>
+        	</div>
+        	
+        	
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-27
+            	描述：分配权限操作
+            -->
+        	<div class="control_pf_body" id="setgrd" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('setgrd')" onmousedown="addzindex('setgrd')">
+					<span>配置权限</span>
+					<em class="icon-remove" onclick="hidediv('setgrd','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="sergrd_list" id="grdlists">
+        				
+        			</div>
+        			<div class="delt_buttion_fb">
+        				<span class="cancel" onclick="eitegrdpeizi()">确定</span>
+        				<span class="determine " onclick="hidediv('setgrd','fukj')">取消</span>
+        			</div>
+        			<input type="hidden" name='peizhiid' id='peizhiid' value="" />
+        			<input type="hidden" name='peizhiurl' id='peizhiurl' value="" />
+        		</div>
+        	</div>
+        	
+        	
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-27
+            	描述：查看信息
+            -->
+        	
+        	<div class="control_pf_body" id="lookgrd" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('lookgrd')" onmousedown="addzindex('lookgrd')">
+					<span>查看权限</span>
+					<em class="icon-remove" onclick="hidediv('lookgrd','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<form method="post" name="webset" id="webset" action="">
+						<div class="pf_input_text">
+							<span>权限名称：</span>
+							<input type="text" name="lokwebname" id="lokwebname" placeholder="请输入权限名称" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入权限名称</em>
+						</div>
+						<div class="pf_textarea">
+							<span>权限描述：</span>
+							<textarea name="lokcont" id="lokcont" class="gao_du_textarea"></textarea>
+						</div>
+						<div class='pf_radio' id="loksetval">
+							
+						</div>
+					</form>
+        			<div class="sergrd_list" id='lookgrdlist'>
+        				<label><span>文档信息管理</span><input type="checkbox" name="setquanxin" id="setquanxin" value="1" /></label>
+        				<ul>
+        					<li>
+        						<span><em>内容列表</em><input type="checkbox" name="setquanxin" id="setquanxin" value="2" /></span>
+        						<i><em>添加</em><input type="checkbox" name="setquanxin" id="setquanxin" value="3" /><em>修改</em><input type="checkbox" name="setquanxin" id="setquanxin" value="4" /><em>删除</em><input type="checkbox" name="setquanxin" id="setquanxin" value="5" /></i>
+        					</li>
+        					<li>
+        						<span><em>栏目列表</em><input type="checkbox" name="setquanxin" id="setquanxin" value="6" /></span>
+        						<i><em>添加</em><input type="checkbox" name="setquanxin" id="setquanxin" value="7" /><em>修改</em><input type="checkbox" name="setquanxin" id="setquanxin" value="8" /><em>删除</em><input type="checkbox" name="setquanxin" id="setquanxin" value="9" /></i>
+        					</li>
+        				</ul>
+        				
+        				
+        				<label><span>广告管理</span><input type="checkbox" name="setquanxin" id="setquanxin" value="10" /></label>
+        				<ul>
+        					<li>
+        						<span><em>广告类型</em><input type="checkbox" name="setquanxin" id="setquanxin" value="11" /></span>
+        						<i><em>添加</em><input type="checkbox" name="setquanxin" id="setquanxin" value="12" /><em>修改</em><input type="checkbox" name="setquanxin" id="setquanxin" value="13" /><em>删除</em><input type="checkbox" name="setquanxin" id="setquanxin" value="14" /></i>
+        					</li>
+        					<li>
+        						<span><em>广告列表</em><input type="checkbox" name="setquanxin" id="setquanxin" value="15" /></span>
+        						<i><em>添加</em><input type="checkbox" name="setquanxin" id="setquanxin" value="16" /><em>修改</em><input type="checkbox" name="setquanxin" id="setquanxin" value="17" /><em>删除</em><input type="checkbox" name="setquanxin" id="setquanxin" value="18" /></i>
+        					</li>
+        				</ul>
+        				
+        				
+        				
+        				
+        			</div>
+        			<div class="delt_buttion">
+        				<span class="cancel right_yidong" onclick="hidediv('lookgrd','fukj')">关闭</span>
+        			</div>
+        			<input type="hidden" name="idval" id="idval" value="" />
+        		</div>
+        	</div>

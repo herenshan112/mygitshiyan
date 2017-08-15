@@ -1,0 +1,15 @@
+		<!--
+			友情链接
+		-->
+		<div class="youqinglianjie">
+			<div class="yqlj-con">
+				<h3>LINK</h3>
+				<ul>
+					{volist name='link_list' id='link_list'}
+					<li><a href="{neq name='link_list.linkurl' value=''}{$link_list.linkurl}{else /}#{/neq}" target="_blank">{$link_list.title}</a></li>
+					{/volist}
+					
+				</ul>
+				
+			</div>
+		</div>

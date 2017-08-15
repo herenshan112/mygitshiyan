@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改广告类型</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{:url('advert/type')}">类型列表</a>
+					<a href="{:url('advert/type',array('action'=>'add'))}" {php}if(!in_array(20, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加类型</a>
+					<a class="active" href="{:url('advert/type',array('action'=>'add','id'=>$list['advt_id']))}">修改类型</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<form name="addggtype" method="post" action="{:url('advert/type',array('action'=>'eitecl','id'=>$list['advt_id']))}">
+						<div class="webset_input_text">
+							<span>位置名称：</span>
+							<input type="text" name="webname" id="webname" placeholder="请输入位置名称" value="{$list.advt_title}"><input type="hidden" name="oldwebname" id="oldwebname" value="{$list.advt_title}" />
+							<em><i class="icon-exclamation-sign"></i>请输入位置名称</em>
+						</div>
+						<div class="webset_input_text">
+							<span>有效范围：</span>
+							<select name="usergrade" id="usergrade">
+								<option value="0">所有页面</option>
+								{volist name='colum' id='colum'}
+									<option value="{$colum.pty_id}"  {eq name='list.advt_fanwei' value='$colum["pty_id"]'}selected{/eq}>&nbsp;|-{$colum.pty_title}</option>
+								{/volist}
+							</select>
+							<em></em>
+						</div>
+						<div class="webset_textarea">
+							<span>位置描述：</span>
+							<textarea name="description" id="description" class="gao_du_textarea">{$list.advt_cont}</textarea>
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="userset" id="userset" value="1" {eq name='list.advt_setval' value='1'}checked{/eq}>
+							<em>启用</em>
+							<input type="radio" name="userset" id="userset" value="0" {neq name='list.advt_setval' value='1'}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

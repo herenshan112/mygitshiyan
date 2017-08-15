@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加文档</title>
+		{include file='public/css_js' /}
+		{include file='public/ueditor_cssjs'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{$indexurl}">文档列表</a>
+					<a class="active" href="{$posturl}">{$addtel}</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<form name="addggtype" method="post" action="{$posturl}">
+						{include file='pagecont/type_select' /}   <!--文章所属栏目-->
+						<div class="webset_input_text">
+							<span>文档标题：</span>
+							<input type="text" name="title" id="title" placeholder="请输入文档标题" value="{$list.cn_title}">
+							<input type="hidden" name="oldtitle" id="oldtitle" placeholder="请输入文档标题" value="{$list.cn_title}">
+							<em><i class="icon-exclamation-sign"></i>请输入文档标题</em>
+						</div>
+						<div class='webset_radio'>
+							<span>文档属性：</span>
+							<input type="checkbox" name="attrval[]" id="attrval" value="1" {php}if(in_array(1, explode(',',$list['cn_attr']))){echo 'checked';}{/php}>
+							<em>推荐</em>
+							<input type="checkbox" name="attrval[]" id="attrval" value="2" {php}if(in_array(2, explode(',',$list['cn_attr']))){echo 'checked';}{/php}>
+							<em>头条</em>
+							<input type="checkbox" name="attrval[]" id="attrval" value="3" {php}if(in_array(3, explode(',',$list['cn_attr']))){echo 'checked';}{/php}>
+							<em>幻灯</em>
+							<input type="checkbox" onclick="jumpweburl()" name="attrval[]" id="attrvald" value="4" {php}if(in_array(4, explode(',',$list['cn_attr']))){echo 'checked';}{/php}>
+							<em>跳转</em>
+						</div>
+						
+						
+						<div class="webset_input_text" id="weburldiv" {php}if(in_array(4, explode(',',$list['cn_attr']))){echo 'style="display: block;"';}else{echo 'style="display: none;"';}{/php}>
+							<span>外部链接：</span>
+							<input type="text" name="weburl" id="weburl" placeholder="请输入外部链接" value="{$list.cn_urllinks}" style="width: 170px;">
+							<em><i class="icon-exclamation-sign"></i>网站跳转链接，如果未选中跳转按钮，此处可不填！</em>
+						</div>
+						
+						<div class="webset_input_text">
+							<span>关键词：</span>
+							<input type="text" name="keyword" id="keyword" placeholder="请输入关键词每个用','隔开" value="{$list.cn_keyword}">
+							<em><i class="icon-exclamation-sign"></i>请输入关键词每个用','隔开</em>
+						</div>
+						<div class="webset_textarea">
+							<span>栏目描述：</span>
+							<textarea name="description" id="description" class="gao_du_textarea" style="height: 80px;">{$list.cn_descr}</textarea>
+						</div>
+						
+						
+						
+						<div class="webset_upimg_text">
+							<span>封面图：</span>
+							<input type="text" name="smlpicval" id="smlpicval" placeholder="请上传封面图" value="{$list.cn_smallimg}">
+							<em onclick="getElementById('smlpicbut').click()">&nbsp;</em>
+							<a class="webset_a"><img id="smlpiclook" src="{$smallimg}" alt="上传图片" /></a>
+							<h2 id="uppic_error_sml"></h2>
+							<input type="file" multiple="smlpicbut" id="smlpicbut" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="smlpictype" id="smlpictype" value="3"> 
+						</div>
+						
+						
+						
+						
+						
+						
+						<!--div>
+							<span>图片集</span>
+							<label>
+								<a class=" icon-upload-alt"></a>
+								<span>
+									<em>
+										<img src="images/ewm.png"><i>标题</i>
+									</em>
+								</span>
+							</label>
+						</div-->
+						<div class="webset_input_text">
+							<span>排序：</span>
+							<input type="text" name="storval" id="storval" placeholder="请输入排序" value="{$list.cn_sort}" style="width: 170px;">
+							<em><i class="icon-exclamation-sign"></i>请输入排序</em>
+						</div>
+						
+						<div class="webset_upimg_text">
+							<span>视频：</span>
+							<input type="text" name="voideurl" id="voideurl" placeholder="请上传视频或写入视频地址" value="{$list.cn_voidurl}">
+							<em onclick="getElementById('upvoide').click()">&nbsp;</em>
+							
+							<h2 id="uppic_error_void">可以上传也可以直接写入视频地址</h2>
+							<input type="file" multiple="upvoide" id="upvoide" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="upvoidetype" id="upvoidetype" value="4"> 
+						</div>
+						
+						<div class="webset_textarea_fwb" style="height: 440px; overflow: hidden; overflow-y: auto;">
+							<table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="200" align="right"><span>详细内容：</span></td>
+									<td><textarea name="typecont" id="typecont" class="gao_du_textarea" style="width:700px;height:300px;">{$list.cn_content}</textarea></td>
+								</tr>
+							</table>
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="setval" id="setval" value="1" {eq name='list.cn_setval' value="1"}checked{/eq}>
+							<em>启用</em>
+							<input type="radio" name="setval" id="setval" value="0" {eq name='list.cn_setval' value="0"}checked{/eq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+
+    		var ue = UE.getEditor('typecont');
+    		
+    	</script>
+	</body>
+</html>

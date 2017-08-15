@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `#^@_search`;
+CREATE TABLE `#^@_search` (
+  `ss_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ss_title` varchar(100) DEFAULT NULL COMMENT '关键字',
+  `ss_sum` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '搜索次数',
+  `ss_set` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  `ss_time` int(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ss_id`),
+  KEY `ss_id` (`ss_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='热门关键字';
+INSERT INTO `#^@_search` (ss_id,ss_title,ss_sum,ss_set,ss_time) VALUES ('1','管','1','1','1502511090'),('2','灌装','2','1','1502511158'),('3','2536','2','1','1502516800');
+

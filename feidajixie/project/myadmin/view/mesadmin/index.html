@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言管理</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('mesadmin/index')}">留言列表</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<table class="webset_tabel">
+						<tr>
+							<th width="5%">ID</th>
+							<th width="20%">联系信息</th>
+							<th width="35%">内容</th>
+							<th width="15%">留言时间</th>
+							<th width="5%">状态</th>
+							<th width="20%">操作</th>
+						</tr>
+						{volist name='list' id='list'}
+						<tr>
+							<td>{$list.mes_id}</td>
+							<td align="left">
+								姓名：{$list.mes_name}<br>
+								电话：{$list.mes_tel}<br>
+								E-mail：{$list.mes_email}<br>
+								地址：{$list.mes_address}
+							</td>
+							<td align="left">{$list.mes_cont}</td>
+							<td>{$list.mes_time|date='Y-m-d H:i:s',###}</td>
+							<td><i class="{eq name='list.mes_setval' value='1'}icon-unlock lock_color{else /}icon-lock lock_color_red{/eq}"></i></td>
+							<td>
+								<a class="icon-comments webset_bianji_icon" onclick="hfnescont({$list.mes_id},'messagehf','fukj','{:url('readmescont')}','{:url('huifucl')}')" title="回复" {php}if(!in_array(53, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-trash webset_bianji_icon" onclick="deltall({$list.mes_id},'deltcont','fukj','{:url('delmesage')}')" title="删除" {php}if(!in_array(54, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-eye-open webset_bianji_icon" onclick="lookmes({$list.mes_id},'lookmsg','fukj','{:url('readmescont')}')" title="查看" {php}if(!in_array(55, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+							</td>
+						</tr>
+						{/volist}
+						<tr>
+							<td colspan="6">
+								<div>
+									{$page}
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+        <div class="control_pf_bj" id="fukj">
+        	<em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+        	<!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：修改窗口
+	        -->
+        	<div class="control_pf_body" id="messagehf" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('messagehf')" onmousedown="addzindex('messagehf')">
+					<span>回复信息</span>
+					<em class="icon-remove" onclick="hidediv('messagehf','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			
+						<div class="pf_input_text" style="height: 20px;">
+							<span>产品名称：</span>
+							<em id="prd_title"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>联系人：</span>
+							<em id="prd_name"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>联系电话：</span>
+							<em id="prd_tel"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>邮箱：</span>
+							<em id="prd_email"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>地址：</span>
+							<em id="prd_addres"></em>
+						</div>
+						<div class="pf_textarea">
+							<span>备注：</span>
+							<em id="prd_cont"></em>
+						</div>
+						<div class="pf_textarea">
+							<span>回复内容：</span>
+							<textarea name="hfnrcontss" id="hfnrcontss" class="gao_du_textarea"></textarea>
+						</div>
+						
+						<div class='pf_radio' id="eiteztcl">
+							
+						</div>
+						
+						
+					<div class="delt_buttion_fb">
+						<input type="hidden" name="meshfid" id="meshfid" value="" />
+						<input type="hidden" name="meshfurl" id="meshfurl" value="" />
+        				<span class="cancel" onclick="huifumescl()">确定</span>
+        				<span class="determine " onclick="hidediv('messagehf','fukj')">取消</span>
+        			</div>
+        		</div>
+        	</div>
+        	
+        	{include file='public/delte' /}
+        	{include file='public/admindata' /}
+        	
+        	
+        	
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-27
+            	描述：查看信息
+            -->
+        	
+        	<div class="control_pf_body" id="lookmsg" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('lookmsg')" onmousedown="addzindex('lookmsg')">
+					<span>查看留言</span>
+					<em class="icon-remove" onclick="hidediv('lookmsg','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			
+        			<div class="control_pf_foot">
+        				<div class="pf_input_text" style="height: 20px;">
+							<span>产品名称：</span>
+							<em id="prd_titles"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>联系人：</span>
+							<em id="prd_names"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>联系电话：</span>
+							<em id="prd_tels"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>邮箱：</span>
+							<em id="prd_emails"></em>
+						</div>
+						<div class="pf_input_text" style="height: 20px;">
+							<span>地址：</span>
+							<em id="prd_address"></em>
+						</div>
+						<div class="pf_textarea">
+							<span>备注：</span>
+							<em id="prd_conts"></em>
+						</div>
+						<div class="pf_textarea">
+							<span>回复内容：</span>
+							<em id="prd_contshf"></em>
+						</div>
+						
+						<div class='pf_radio' id="eiteztcls">
+							
+						</div>
+        				</div>
+        				
+        			
+        			<div class="delt_buttion">
+        			
+        				<span class="cancel right_yidong" onclick="hidediv('lookmsg','fukj')">关闭</span>
+        			</div>
+        			<input type="hidden" name="idval" id="idval" value="" />
+        		</div>
+        	</div>
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        </div>
+		
+			
+		</script>
+		
+	</body>
+</html>

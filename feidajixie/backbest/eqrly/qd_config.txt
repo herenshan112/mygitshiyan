@@ -1,0 +1,32 @@
+DROP TABLE IF EXISTS `#^@_config`;
+CREATE TABLE `#^@_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `webname` varchar(100) DEFAULT NULL COMMENT '网站名称',
+  `companyname` varchar(100) DEFAULT NULL COMMENT '公司名称',
+  `companyadd` varchar(100) DEFAULT NULL COMMENT '公司地址',
+  `icpnumber` varchar(50) DEFAULT NULL COMMENT '备案号',
+  `keyword` varchar(200) DEFAULT NULL COMMENT '关键词',
+  `description` varchar(255) DEFAULT NULL COMMENT '站点描述',
+  `Personname` varchar(10) DEFAULT NULL COMMENT '负责人',
+  `mobel` int(12) DEFAULT NULL COMMENT '手机号码',
+  `telval` varchar(20) DEFAULT NULL COMMENT '固定电话',
+  `faxnum` varchar(20) DEFAULT NULL COMMENT '传真',
+  `email` varchar(100) DEFAULT NULL COMMENT '电子邮件',
+  `qqnumber` varchar(20) DEFAULT NULL COMMENT 'QQ号码',
+  `imagesize` int(11) NOT NULL DEFAULT '1' COMMENT '图片上传大小',
+  `imagestype` varchar(255) DEFAULT NULL,
+  `filesize` int(11) NOT NULL DEFAULT '1' COMMENT '文档上传大小',
+  `filetype` varchar(255) DEFAULT NULL COMMENT '文档上传类型',
+  `vidosize` int(11) NOT NULL DEFAULT '1' COMMENT '视频上传大小',
+  `vidotype` varchar(255) DEFAULT NULL COMMENT '视频上传类型',
+  `sandaima` mediumtext COMMENT '第三方代码',
+  `userset` int(1) NOT NULL DEFAULT '0' COMMENT '会员设置',
+  `webset` int(1) NOT NULL DEFAULT '1' COMMENT '网站是否开启',
+  `mobackval` varchar(30) NOT NULL DEFAULT 'default' COMMENT '默认模版风格',
+  `databack` varchar(30) NOT NULL DEFAULT 'backbest' COMMENT '数据库默认备份路径',
+  `session_time` int(10) DEFAULT '30' COMMENT 'session有效时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+INSERT INTO `#^@_config` (id,webname,companyname,companyadd,icpnumber,keyword,description,Personname,mobel,telval,faxnum,email,qqnumber,imagesize,imagestype,filesize,filetype,vidosize,vidotype,sandaima,userset,webset,mobackval,databack,session_time) VALUES ('1','我的网站','崬奋科技','北京','京ICP备-123456789','这事我的网站','这是我的网站的描述','秦东','2147483647','','','532623622@qq.com','532623622','500','jpg|jpng|gif|png|bmp|ico','100','rar|zip|txt|doc|docx|xls|xlsx','500','swf|flv|mp4|avi','测试第三方代码','0','1','default','backbest','30');
+

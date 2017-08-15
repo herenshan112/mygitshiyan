@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('admingrod/index')}">管理员</a>
+					<a href="{:url('admingrod/index',array('action'=>'add'))}" {php}if(!in_array(34, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加管理员</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<table class="webset_tabel">
+						<tr>
+							<th width="5%">ID</th>
+							<th width="8%">管理类型</th>
+							<th width="12%">用户名</th>
+							<th width="8%">联系人</th>
+							<th width="11%">最后登陆IP</th>
+							<th width="14%">最后登陆时间</th>
+							<th width="11%">联系电话</th>
+							<th width="5%">状态</th>
+							<th width="23%">操作</th>
+						</tr>
+						{volist name='list' id='list' empty='$empt'}
+						<tr>
+							<td>{$list.ad_id}</td>
+							<td>{$list.grd_title}</td>
+							<td align="left">{$list.ad_username}</td>
+							<td>{$list.ada_name}</td>
+							<td>{$list.ad_lastip}</td>
+							<td>{neq name='list.ad_lasttime' value='0'}{$list.ad_lasttime|date='Y-m-d H:i:s',###}{/neq}</td>
+							<td>{$list.ada_tel}</td>
+							<td><i class="{eq name='list.ad_setval' value='1'}icon-unlock lock_color{else /}icon-lock lock_color_red{/eq}"></i></td>
+							<td>
+								<a class="icon-key webset_bianji_icon" onclick="eiteajaxadm({$list.ad_id},'eitepwd','fukj','{:url('index',array('action'=>'ajaxeitepwdcl'))}')" title="修改密码" {php}if(!in_array(35, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-edit webset_bianji_icon" onclick="eiteadminajx({$list.ad_id},'eitecont','fukj','{:url('index',array('action'=>'ajaxeite'))}','{:url('index',array('action'=>'ajaxeitecl'))}')" title="修改资料" {php}if(!in_array(36, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-trash webset_bianji_icon" onclick="deltall({$list.ad_id},'deltcont','fukj','{:url('deladmin')}')" title="删除" {php}if(!in_array(37, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-eye-open webset_bianji_icon" onclick="lookadmcont({$list.ad_id},'lookadmin','fukj','{:url('index',array('action'=>'ajaxeite'))}')" title="查看" {php}if(!in_array(38, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+							</td>
+						</tr>
+						{/volist}
+						
+						<tr>
+							<td colspan="9">
+								<div>
+									{$page}
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        
+	        {include file='public/delte' /}
+	        {include file='public/admindata' /}
+	    </div>
+		
+		
+	</body>
+</html>

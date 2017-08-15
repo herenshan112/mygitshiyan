@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站点设置</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				
+				<div class="webset_top">
+					<a href="{:url('index/webset')}">基本信息</a>
+					<a href="{:url('index/seoset')}">SEO设置</a>
+					<a href="{:url('index/fuzerenset')}">负责人设置</a>
+					<a class="active" href="{:url('index/hexin')}">核心设置</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('index/hexin')}">
+						<div class="webset_input_text">
+							<span>默认模版风格：</span>
+							<input type="text" name="mobackval" id="mobackval" placeholder="默认模版风格" value="{$mobackval}">
+							<em></em>
+						</div>
+						<div class="webset_input_text">
+							<span>数据备份目录：</span>
+							<input type="text" name="databack" id="databack" placeholder="数据备份目录" value="{$databack}">
+							<em></em>
+						</div>
+						<div class="webset_input_text">
+							<span>图片上传大小：</span>
+							<input type="text" name="imagesize" id="imagesize" placeholder="请输入图片上传大小" value="{$imagesize}">
+							<em>K</em>
+						</div>
+						<div class="webset_textarea">
+							<span>图片上传类型：</span>
+							<textarea name="imagestype" id="imagestype" class="gao_du_textarea1">{$imagestype}</textarea>
+							<em>(多个用"|"格开)</em>
+						</div>
+						<div class="webset_input_text">
+							<span>文档上传大小：</span>
+							<input type="text" name="filesize" id="filesize" placeholder="请输入文档上传大小" value="{$filesize}">
+							<em>M</em>
+						</div>
+						<div class="webset_textarea">
+							<span>文档上传类型：</span>
+							<textarea name="filetype" id="filetype" class="gao_du_textarea1">{$filetype}</textarea>
+							<em>(多个用"|"格开)</em>
+						</div>
+						<div class="webset_input_text">
+							<span>视频上传大小：</span>
+							<input type="text" name="videosize" id="videosize" placeholder="请输入视频上传大小" value="{$videosize}">
+							<em>M</em>
+						</div>
+						<div class="webset_textarea">
+							<span>视频上传类型：</span>
+							<textarea name="videotype" id="videotype" class="gao_du_textarea1">{$videotype}</textarea>
+							<em>(多个用"|"格开)</em>
+						</div>
+						<div class="webset_textarea">
+							<span>第三方代码：</span>
+							<textarea name="sandemo" id="sandemo" class="gao_du_textarea2">{$sandemo}</textarea>
+						</div>
+						<div class="webset_input_text">
+							<span>SESSION有效时间：</span>
+							<input type="text" name="sestime" id="sestime" placeholder="请输入SESSION有效时间" value="{$sestime}">
+							<em>分钟</em>
+						</div>
+						<div class='webset_radio'>
+							<span>会员设置：</span>
+							<input type="radio" name="userset" id="userset" value="1" {eq name='userset' value="1"}checked{/eq}>
+							<em>开启</em>
+							<input type="radio" name="userset" id="userset" value="0" {neq name='userset' value="1"}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" name="hexintj" id="hexintj" value="确认提交" />
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

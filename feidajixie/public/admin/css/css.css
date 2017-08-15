@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ *鑷畾涔夊瓧锟?
+ */
+@font-face {
+	font-family:myzt;
+	src:url("fonts/glyphicons-halflings-regular.ttf"),url("fonts/glyphicons-halflings-regular.eot");
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑",myzt;
+	scrollbar-arrow-color: #0000AA;
+	resize: 10px;
+}
+::-webkit-scrollbar {  width: 7px;}
+::-webkit-scrollbar-track {  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.8);}
+::-webkit-scrollbar-thumb {  background: #bbb;}
+a {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border: 0px inset;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+}
+/*鍦嗚*/
+.css_yuanjiao{
+	text-align: center;
+	width:150px;
+	height:50px;
+	line-height: 50px;
+	border:2px solid #C0C;
+	border-radius:25px 5px 10px 50px;
+	-ms-border-radius:25px 5px 10px 50px;
+	-webkit-border-radius:25px 30px 10px 50px;
+}
+/*鐩掑瓙闃村奖*/
+.css_box_yinying{
+	font-family: myzt;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background-color: #CC00CC;
+	box-shadow: 10px 10px 5px #ccc;
+	-ms-box-shadow:10px 10px 5px #ccc;
+	-webkit-box-shadow:10px 10px 5px #CCCCCC;
+	margin: 10px 0;
+}
+/*鍥剧墖杈规*/
+.css_box_bkimg{
+	font-family: myzt;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border: 15px solid transparent;
+	padding: 10px 20px;
+	
+	-ms-border-img:url(../images/49.png) 30 30 stretch;
+	-webkit-border-image: url(../images/49.png) 30 30 stretch;
+	border-image: url(../images/49.png) 30 30 stretch;
+}
+/*娓愬彉*/
+.css_jianbian{
+	font-family: myzt;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin: 10px 0px;
+	background:-webkit-linear-gradient(left top,#f00,#00a);
+	background: -ms-linear-gradient(left,#f00,#00a);
+	background: linear-gradient(to bottom  right, #f00,#00a);
+}
+/*
+浣跨敤瑙掑害娓愬彉
+ */
+.css_jianbian_jiaodu{
+	font-family: myzt;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin: 10px 0px;
+	background:-webkit-linear-gradient(35deg,#f00,#00a);
+	background: -ms-linear-gradient(35deg,#f00,#00a);
+	background: linear-gradient(35deg, #f00,#00a);
+}
+/*
+ *2D杞崲
+ */
+.css_2d_ong{
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 2px solid #CC00CC;
+	border-radius:5px;
+	-ms-border-radius:5px;
+	-webkit-border-radius:5px;
+	transform:rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-webkit-transform: rotate(30deg);
+}
+.css_2d_ong_qx{
+	width: 150px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border: 2px solid #CC00CC;
+	border-radius:5px;
+	-ms-border-radius:5px;
+	-webkit-border-radius:5px;
+	transform:skew(30deg,30deg);
+	-ms-transform: skew(30deg,30deg);
+	-webkit-transform: skew(30deg,30deg);
+	margin: 10px 0 0 25px;
+}
+.css_guodu_one{
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 1px solid #CC00CC;
+	
+	-webkit-transition: height 2s,width 2s, -webkit-transform 2s;
+	transition: height 2s,width 2s, transform 2s;
+}
+.css_guodu_one:hover{
+	height: 150px;
+	width: 300px;
+	transform: rotate(175deg);
+	-webkit-transform: rotate(175deg);
+}
+/*
+ * 鍔ㄧ敾鏁堟灉
+ */
+.css_guodu_donghua{
+	font-family: myzt;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	text-align: center;
+	line-height: 50px;
+	background-color: #CC00CC;
+	-webkit-transition: width 2s,height 2s,line-height 2s;
+	transition:  width 2s,height 2s,line-height 2s;
+	
+}
+.css_guodu_donghua:hover{
+	width: 200px;
+	height: 200px;
+	line-height:200px;
+}
+.css_guodu_donghua.hover{
+	animation: mydonghua 5s;
+	-webkit-animation: mydonghua 5s;
+}
+
+/*.active{
+	animation: mydonghua 15s;
+	-webkit-animation: mydonghua 15s;
+}*/
+
+@keyframes mydonghua{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+@-webkit-keyframes  mydonghua{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:red; left:0px; top:0px;}
+}
+

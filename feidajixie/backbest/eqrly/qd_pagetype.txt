@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS `#^@_pagetype`;
+CREATE TABLE `#^@_pagetype` (
+  `pty_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pty_title` varchar(50) NOT NULL DEFAULT '0' COMMENT '类型名称',
+  `pty_fatherid` int(11) DEFAULT '0' COMMENT '所属分类',
+  `pty_filetype` int(11) DEFAULT '0' COMMENT '栏目类型',
+  `pty_keyword` varchar(255) DEFAULT '0' COMMENT '关键字',
+  `pty_destons` varchar(255) DEFAULT '0' COMMENT '栏目描述',
+  `pty_images` varchar(200) DEFAULT '0' COMMENT '栏目封面图片',
+  `pty_paixu` int(10) unsigned NOT NULL DEFAULT '50' COMMENT '排序',
+  `pty_pgsum` smallint(5) unsigned NOT NULL DEFAULT '20' COMMENT '每页显示个数',
+  `pty_cont` mediumtext COMMENT '栏目描述',
+  `pty_time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `pty_set` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否开启',
+  PRIMARY KEY (`pty_id`),
+  UNIQUE KEY `pty_id` (`pty_id`) USING BTREE,
+  KEY `pty_title` (`pty_title`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='栏目类型列表';

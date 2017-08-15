@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改友情链接</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{:url('linkadmin/index')}">友情链接列表</a>
+					<a href="{:url('linkadmin/index',array('action'=>'add'))}" {php}if(!in_array(28, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加友情链接</a>
+					<a class="active" href="{:url('linkadmin/index',array('action'=>'eite','id'=>$list['id']))}">修改友情链接</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<form method="post" name="webset" id="webset" action="{:url('linkadmin/index',array('action'=>'eitecl','id'=>$list['id']))}">
+						<div class="webset_input_text">
+							<span>网站名称：</span>
+							<input type="text" name="webname" id="webname" placeholder="请输入网站名称" value="{$list.title}">
+							
+							<em><i class="icon-exclamation-sign"></i>请输入网站名称</em>
+						</div>
+						<div class="webset_input_text">
+							<span>网址：</span>
+							<input type="text" name="weburl" id="weburl" placeholder="请输入网址(ps:以http://或https://开头)" value="{$list.linkurl}">
+							<input type="hidden" name="oldweburl" id="oldweburl" value="{$list.linkurl}" />
+							<em><i class="icon-exclamation-sign"></i>请输入网址(ps:以http://或https://开头)</em>
+						</div>
+						<div class="webset_upimg_text">
+							<span>LOGO：</span>
+							<input type="text" name="smlpicval" id="smlpicval" placeholder="请上传封面图" value="{$list.images}">
+							<em onclick="getElementById('smlpicbut').click()">&nbsp;</em>
+							<a class="webset_a"><img id="smlpiclook" src="{neq name='list.images' value=''}/upload/images/{$list.images}{else /}/public/admin/images/33.png{/neq}" alt="上传图片" /></a>
+							<h2 id="uppic_error_sml"></h2>
+							<input type="file" multiple="smlpicbut" id="smlpicbut" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="smlpictype" id="smlpictype" value="3"> 
+						</div>
+						<div class="webset_textarea">
+							<span>网站描述：</span>
+							<textarea name="conttent" id="conttent" class="gao_du_textarea">{$list.linkcont}</textarea>
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="setval" id="setval" value="1" {eq name='list.linkset' value='1'}checked{/eq}>
+							<em>开启</em>
+							<input type="radio" name="setval" id="setval" value="0" {neq name='list.linkset' value='1'}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `#^@_advcont`;
+CREATE TABLE `#^@_advcont` (
+  `advc_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `advc_title` varchar(255) DEFAULT NULL COMMENT 'banner标题',
+  `advc_type` int(11) NOT NULL DEFAULT '0' COMMENT '所属范围',
+  `advc_images` varchar(255) DEFAULT NULL COMMENT '封面图片',
+  `advc_url` varchar(255) DEFAULT NULL COMMENT '尾部链接',
+  `advc_cont` mediumtext COMMENT '详细介绍',
+  `advc_setval` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  `advc_time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `advc_uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '写入人',
+  PRIMARY KEY (`advc_id`),
+  UNIQUE KEY `id` (`advc_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='广告内容';
+INSERT INTO `#^@_advcont` (advc_id,advc_title,advc_type,advc_images,advc_url,advc_cont,advc_setval,advc_time,advc_uid) VALUES ('1','BANNER','1','2017_08_10/2017081010033124139.jpg','','<p>BANNER</p>','1','1502330617','1'),('2','ban','1','2017_08_11/20170811172506220567.jpg','','<p>ban</p>','1','1502443512','1'),('3','油脂灌装专家','1','2017_08_11/2017081119353788406.jpg','','<p>油脂灌装专家</p>','1','1502451342','1'),('4','en_banner','2','2017_08_12/2017081214464324688.jpg','','<p>en_banner</p>','1','1502520407','1'),('5','en_banner1','2','2017_08_12/20170812144712648026.jpg','','<p>en_banner</p>','1','1502520435','1');
+

@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/public/index/css/banner.css" />
+<script type="text/javascript" src="/public/index/js/jquery.banner.revolution.min.js"></script>
+<script type="text/javascript" src="/public/index/js/banner.js"></script>
+	<div class="fullwidthbanner-container">
+		<div class="fullwidthbanner">
+			<ul>
+				{volist name='banlst' id='banlst'}
+				<li data-transition="3dcurtain-horizontal" data-slotamount="15" data-masterspeed="300">
+					<img src="/upload/images/{$banlst.advc_images}" alt="" />									
+				</li>
+				{/volist}
+					
+			</ul>
+		</div>
+	</div>
+	

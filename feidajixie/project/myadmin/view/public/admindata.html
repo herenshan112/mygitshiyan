@@ -1,0 +1,179 @@
+<!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：密码
+	        -->
+	        <div class="control_pf_body" id="eitepwd" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('eitepwd')" onmousedown="addzindex('eitepwd')">
+					<span>修改密码</span>
+					<em class="icon-remove" onclick="hidediv('eitepwd','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			
+						<div class="webset_input_text">
+							<span>新密码：</span>
+							<input type="password" name="eitnewpwd" id="eitnewpwd" placeholder="请输入新密码" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入新密码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>确认密码：</span>
+							<input type="password" name="eitoldpwd" id="eitoldpwd" placeholder="请输入确认密码" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入确认密码</em>
+						</div>
+						
+					<div class="delt_buttion_fb">
+        				<span class="cancel" onclick="eitepwdcl()">确定</span>
+        				<span class="determine " onclick="hidediv('eitepwd','fukj')">取消</span>
+        			</div>
+        			<input type="hidden" name="eitpwdid" id="eitpwdid" value="" />
+        			<input type="hidden" name="eitpwdurl" id="eitpwdurl" value="" />
+        		</div>
+        	</div>
+        	
+        	
+        	
+        	
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-27
+            	描述：修改资料
+            -->
+        	<div class="control_pf_body" id="eitecont" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('eitecont')" onmousedown="addzindex('eitecont')">
+					<span>修改资料</span>
+					<em class="icon-remove" onclick="hidediv('eitecont','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        				<div class="pf_input_text">
+							<span>管理权限：</span>
+							<select name="eitadcongrd" id="eitadcongrd">
+								<option value="0">※※※请选择管理权限※※※</option>
+							</select>
+							<em>请选择权限</em>
+						</div>
+        				<div class="pf_input_text">
+							<span>联系人：</span>
+							<input type="text" name="eitecallname" id="eitecallname" placeholder="请输入用户名" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入用户名</em>
+						</div>
+						<div class="pf_input_text">
+							<span>联系电话：</span>
+							<input type="text" name="eitecalltel" id="eitecalltel" placeholder="请输入联系电话" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入联系电话</em>
+						</div>
+						<div class="pf_input_text">
+							<span>QQ：</span>
+							<input type="text" name="eiteqqnum" id="eiteqqnum" placeholder="请输入QQ" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入QQ</em>
+						</div>
+						<div class="pf_input_text">
+							<span>E-mail：</span>
+							<input type="text" name="eiteemail" id="eiteemail" placeholder="请输入E-mail" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入E-mail</em>
+						</div>
+						<div class="pf_input_text">
+							<span>联系地址：</span>
+							<input type="text" name="eiteaddress" id="eiteaddress" placeholder="请输入联系地址" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入联系地址</em>
+						</div>
+						
+						<div class="pf_touxian_txt">
+							<span>头像：</span>
+							<input type="text" name="smlpicval" id="smlpicval" placeholder="请上传封面图" value="">
+							<em onclick="getElementById('upimgtoux').click()">&nbsp;</em>
+							<a class="webset_b"><img id="smlpiclook" src="/public/admin/images/20.png" alt="上传图片" /></a>
+							<h2 id="uppic_error_sml"></h2>
+							<input type="file" multiple="upimgtoux" id="upimgtoux" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="upimgtouxty" id="upimgtouxty" value="6"> 
+						</div>
+						
+						
+						<div class="pf_textarea">
+							<span>管理员简介：</span>
+							<textarea name="eiteconts" id="eiteconts" class="gao_du_textarea"></textarea>
+						</div>
+						<div class='pf_radio' id="eiteztcl">
+							<span>状态：</span>
+							<input type="radio" name="eiteusset" id="eiteusset" value="1" checked>
+							<em>启用</em>
+							<input type="radio" name="eiteusset" id="eiteusset" value="0">
+							<em>锁定</em>
+						</div>
+        			
+        			<div class="delt_buttion_fb">
+        				<span class="cancel" onclick="eiteadclzx()">确定</span>
+        				<span class="determine " onclick="hidediv('eitecont','fukj')">取消</span>
+        			</div>
+        			<input type="hidden" name="eiteadmconid" id="eiteadmconid" value="" />
+        			<input type="hidden" name="eiteadmconurl" id="eiteadmconurl" value="" />
+        		</div>
+        	</div>
+        	<!--
+            	作者：herenshan112@163.com
+            	时间：2016-12-27
+            	描述：查看管理员信息
+            -->
+        	<div class="control_pf_body" id="lookadmin" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('lookadmin')" onmousedown="addzindex('lookadmin')">
+					<span>查看资料</span>
+					<em class="icon-remove" onclick="hidediv('lookadmin','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        				<div class="pf_input_text">
+							<span>用户名：</span>
+							
+							<em id="sky1"></em>
+						</div>
+        				<div class="pf_radio">
+							<span>管理权限：</span>
+							
+							<em id="sky2"></em>
+						</div>
+        				<div class="pf_input_text">
+							<span>联系人：</span>
+							
+							<em id="sky3"></em>
+						</div>
+						<div class="pf_input_text">
+							<span>联系电话：</span>
+							<em id="sky4"></em>
+						</div>
+						<div class="pf_input_text">
+							<span>QQ：</span>
+							<em id="sky5"></em>
+						</div>
+						<div class="pf_input_text">
+							<span>E-mail：</span>
+							<em id="sky6"></em>
+						</div>
+						<div class="pf_input_text">
+							<span>联系地址：</span>
+							<em id="sky7"></em>
+						</div>
+						<div class="pf_textarea">
+							<span>管理员简介：</span>
+							<em id="sky8"></em>
+						</div>
+						<div class='pf_radio'>
+							<span>状态：</span>
+							<em id="sky9"></em>
+						</div>
+						
+						<div class='pf_radio'>
+							<span>最后登陆时间：</span>
+							<em id="sky10"></em>
+							<span>最后登陆IP：</span>
+							<em id="sky11"></em>
+						</div>
+						<div class="pf_touxian_txt">
+							<span>头像：</span>
+							
+							<a class="webset_b"><img id="touxicl" src="/public/admin/images/20.png" alt="上传图片" /></a>
+							
+						</div>
+        			
+        			<div class="delt_buttion">
+        				<span class="cancel right_yidong" onclick="hidediv('lookadmin','fukj')">关闭</span>
+        			</div>
+        			<input type="hidden" name="idval" id="idval" value="" />
+        		</div>
+        	</div>

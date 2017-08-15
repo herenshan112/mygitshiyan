@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `#^@_grades`;
+CREATE TABLE `#^@_grades` (
+  `grd_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `grd_title` varchar(100) DEFAULT NULL COMMENT '权限名称',
+  `grd_cont` mediumtext COMMENT '权限描述',
+  `grd_setval` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否启用',
+  `grd_time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `grd_uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '写入人',
+  `grd_arycon` mediumtext COMMENT '权限值',
+  `grd_val` smallint(10) NOT NULL DEFAULT '0' COMMENT '权重',
+  PRIMARY KEY (`grd_id`),
+  UNIQUE KEY `grd_id` (`grd_id`) USING BTREE,
+  UNIQUE KEY `grd_title` (`grd_title`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员等级';
+INSERT INTO `#^@_grades` (grd_id,grd_title,grd_cont,grd_setval,grd_time,grd_uid,grd_arycon,grd_val) VALUES ('1','超级管理员','拥有全部管理权限','1','1502165794','0','1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|52|53|54|55|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51','16'),('2','管理员','有部分权限','1','1502239186','0','1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|45|46|47|48|49|50|51','14');
+

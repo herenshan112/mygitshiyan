@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head' /}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner' /}
+		</div>
+		<!--search-->
+		<div class="search">
+			<div class="search-con">
+				<div class="search-left">
+					<p><span>Hot search keywords：</span>
+					{volist name='sear_list' id='sear_list'}
+					<a href="{:url('/english/searchs',array('sousuoval'=>$sear_list['ss_title']))}">{$sear_list.ss_title}</a> 
+					{/volist}
+					</p>
+				</div>
+				<div class="search-right"><form method="post" name="sousuo" action="{:url('/english/searchs')}"  onsubmit="return jumpserval();"><input type="text" name="sousuoval" id="sousuoval" value="" placeholder="Please enter the search keywords"/><button class="search-btn"><i class="iconfont">&#xe60a;</i></button></form></div>
+			</div>
+		</div>
+		<!--服务项目-->
+		<div class="section">
+			<div class="section-server">
+				
+				<div class="section-title"><div class="clear"></div><h3>Feida Service Project</h3><span><i class="left-line"></i><i class="right-line"></i></span></div>
+				<div class="section-con">
+					<p>Specializing in the production of lubricating oil dedicated filling equipment, grease metering equipment of high-tech enterprises.</p>
+					<div class="xiangmu">
+						<ul>
+							<li><img src="/public/index/images/server-item1.jpg"/></li>
+							<li><img src="/public/index/images/server-item2.jpg"/></li>
+							<li><img src="/public/index/images/server-item3.jpg"/></li>
+							<li style="margin-right: 0px;"><img src="/public/index/images/server-item4.jpg"/></li>
+						</ul>
+						<a href="" class="se-zixun"><img src="/public/index/images/zixun_1.png"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--产品中心-->
+		<div class="section product">
+			<div class="section-server">
+				
+				<div class="section-title"><div class="clear"></div><h3>Feida Product Center</h3><span><i class="left-line"></i><i class="right-line"></i></span></div>
+				<div class="section-con">
+					<p>Yantai Feida" aims to become the domestic lubricant filling equipment production base, lubricating oil filling equipment of choice brand.</p>
+					<div class="product-con">
+						<div class="product-left">
+							<div class="product-list">
+								<ul>
+									
+									{volist name='protym' id='protym' key='ptk'}
+										<li {eq name='ptk' value='1'}class="active"{/eq}><i></i><a href="{:url('product/index',array('tyid'=>$protym['pty_id']))}">{php}echo msubstr($protym['pty_title'],0,19){/php}</a></li>
+									{/volist}
+									
+								</ul>
+								
+							</div>
+							<div class="product-tel"><img src="/public/index/images/tel2_1.png"/></div>
+							
+						</div>
+						<div class="product-right">
+							<!-- Swiper -->
+							    <div class="swiper-container chanpin">
+							        <div class="swiper-wrapper chanpin-list">
+							        	
+							        	{volist name='in_prols' id='in_prols' key='jbqk'}
+							        	<div class="swiper-slide">
+							            	<ul>
+											{volist name='in_prols' id='inpls'}
+												<li>
+							            			<div class="pro-img"><a href="{:url('product/details',array('id'=>$inpls['cn_id']))}" ><img src="{neq name='inpls.cn_smallimg' value=''}/upload/images/{$inpls.cn_smallimg}{else /}/public/admin/images/33.png{/neq}"/></a></div>
+							            			<div class="pro-infor">
+							            				<p>{php}echo msubstr($inpls['cn_title'],0,25){/php}</p>
+							            				<p>Technical Parameter：</p>
+							            				{php}
+							            				if($inpls['cn_zycsval'] != ''){
+															$zycsay=explode('<|>',$inpls['cn_zycsval']);
+															foreach($zycsay as $kics => $valzycsd){
+																if($kics <= 3){
+																	echo '<p>'.$valzycsd.'</p>';
+																}
+															}
+							            				}
+							            				{/php}
+							            				
+							            				<p class="infor-btn"><a href="{:url('product/details',array('id'=>$inpls['cn_id']))}" class="ljxq">Details</a><a href="{:url('product/details',array('id'=>$inpls['cn_id']))}">Consultation</a></p>
+							            			</div>
+							            		</li>
+											{/volist}
+											</ul>
+
+							            </div>
+										{/volist}
+							            
+							        </div>
+							        <!-- Add Pagination 
+							        <div class="swiper-pagination"></div>-->
+							        <!-- Add Arrows -->
+							        <div class="swiper-button-next"></div>
+							        <div class="swiper-button-prev"></div>
+							    </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--高新技术板块-->
+		<div class="gaoxinjishu-banner">
+			<img src="/public/index/images/16.png"/>
+		</div>
+		<!--飞达厂房厂貌-->
+		<div class="section changfang">
+			<div class="section-server">
+				<div class="section-title"><div class="clear"></div><h3>Feida Factory Building Appearance</h3><span><i class="left-line"></i><i class="right-line"></i></span></div>
+				<div class="section-con">
+					<p>Effort for you to create good performance, excellent quality of good products.</p>
+					
+					<div class="changfang-con">
+						<dl class="cfcm-left">
+							{volist name='cf_top' id='cf_top'}
+							<dt><a href="{:url('place/details',array('id'=>$cf_top['cn_id']))}"><img src="{neq name='cf_top.cn_smallimg' value=''}/upload/images/{$cf_top.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/></a></dt>
+							<dd class="cfcm-dd1"><span>{$cf_top.cn_title}</span>
+								<p>{php}echo msubstr($cf_top['cn_descr'],0,50){/php}</p>
+							</dd>
+							<dd class="cfcm-dd2"><a class="hover" href="{:url('place/details',array('id'=>$cf_top['cn_id']))}"></a></dd>
+							{/volist}
+						</dl>
+					
+						<div class="cfcm-right">
+							{volist name='cf_tui' id='cf_tui'}
+							<dl><a href="{:url('place/details',array('id'=>$cf_tui['cn_id']))}">
+								<dt><img src="{neq name='cf_tui.cn_smallimg' value=''}/upload/images/{$cf_tui.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/></dt>
+								<dd>{$cf_tui.cn_title}</dd>
+							</a>
+							</dl>
+							{/volist}
+							
+						</div>
+					
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!--我们的服务-->
+		<div class="server">
+			<div class="in_server">
+				<div class="in_sev_cont1">
+					<div class="in_sev_left">
+						<label>{php}echo msubstr($fwxm['pty_destons'],0,350){/php}</label>
+					</div>
+					<div class="in_sev_right">
+						{volist name='fwxm_ls' id='fwxm_ls'}
+						<label>
+							<a href="{:url('myserver/details',array('id'=>$fwxm_ls['cn_id']))}">
+								<img src="{neq name='fwxm_ls.cn_smallimg' value=''}/upload/images/{$fwxm_ls.cn_smallimg}{else /}/public/index/images/33.png{/neq}">
+							</a>
+						</label>
+						{/volist}
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--走进飞达机械-->
+		<div class="section comein">
+			<div class="section-server">
+				<div class="section-title"><div class="clear"></div><h3>Enter Feida Machinery</h3><span><i class="left-line"></i><i class="right-line"></i></span></div>
+				<div class="section-con">
+					<p>Over the years, the company with its strong technical force, reliable quality assurance and perfect after-sales service, won the support and trust of our customers.</p>
+					
+					<div class="comein-con">
+						<div class="comein-left">
+							<div class="comein-section">
+								<div class="comin-title"><h3><i class="comein-title-left"></i>Feida Profiles<i class="comein-title-right"></i></h3></div>
+								<div class="comin-con">
+								<p>{php}echo msubstr($fdjianjie['pty_destons'],0,200){/php}   <a href="{:url('/english/about')}">【Details】</a></p>
+								</div>
+							</div>
+							
+							<div class="comein-section">
+								<div class="comin-title"><h3><i class="comein-title-left"></i>Commitment<i class="comein-title-right"></i></h3></div>
+
+								<div class="comin-con">
+								<p>{php}echo msubstr($fdcn['pty_destons'],0,200){/php} <a href="/english/about.html#mao3">【Details】</a></p>
+								</div>
+							</div>
+							<div class="comein-section">
+								<div class="comin-title"><h3><i class="comein-title-left"></i>Corporate Style<i class="comein-title-right"></i></h3></div>
+
+								
+<div class="comein-fengcai" style="height: 200px;">
+<!-- Swiper -->
+    <div class="swiper-container2">
+        <div class="swiper-wrapper">
+        	
+            
+            {volist name='in_fccon' id='in_fccon'}
+            <div class="swiper-slide">
+            	{volist name='in_fccon' id='inplsfc'}
+            	<a href="{:url('styleing/details',array('id'=>$inplsfc['cn_id']))}">
+            		<img src="{neq name='inplsfc.cn_smallimg' value=''}/upload/images/{$inplsfc.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/>
+            	</a>
+            	{/volist}
+            </div>
+            {/volist}
+            
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination2"></div>
+        <div class="swiper-button-next2">&gt;</div>
+		<div class="swiper-button-prev2"><</div>
+    </div>
+</div>
+								
+							</div>
+
+
+
+
+
+						</div>
+					
+						<div class="cfcm-right sf_img">
+							<img src="/public/index/images/zjfd-right.jpg"/>
+						</div>
+					
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="jujiaofeida">
+			<div class="jujiao-con">
+				<div class="section">
+			<div class="section-server">
+				
+				<div class="section-title"><div class="clear"></div><h3>Focus Feeder Machinery</h3><span><i class="left-line"></i><i class="right-line"></i></span> </div>
+				<div class="section-con">
+					<p>MEDIA FOCUS</p>
+					<div class="news-con">
+						<div class="news-con-left">
+							<div class="news-title"><h3 class="active" id="news1" onclick="click_newintab(1,2,'news')">Dynamic</h3><i>/</i><h3  id="news2" onclick="click_newintab(2,2,'news')">Information</h3><a id='newsurl' href="{:url('news/index',array('tyid'=>11))}">MORE...</a></div>
+							<div class="news-concent-box" id="cont_news_1">
+								<dl class="news-dl1">
+									{volist name='newdt_top' id='newdt_top'}
+									<dt><a href="{:url('news/details',array('id'=>$newdt_top['cn_id']))}"><img src="{neq name='newdt_top.cn_smallimg' value=''}/upload/images/{$newdt_top.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/></a></dt>
+									<dd>
+										<h4><a href="{:url('news/details',array('id'=>$newdt_top['cn_id']))}" style="color: #666;">{$newdt_top.cn_title}</a></h4>
+										<span>{$newdt_top.cn_time|date='Y-m-d',###}</span>
+										<p><a style="color: #666;" href="{:url('news/details',array('id'=>$newdt_top['cn_id']))}">{php}echo msubstr($newdt_top['cn_descr'],0,50){/php}</a></p>
+										<a href="{:url('news/details',array('id'=>$newdt_top['cn_id']))}">More...</a>
+									</dd>
+									{/volist}
+								</dl>
+								<ul>
+									{volist name='newdt_tj' id='newdt_tj'}
+									<li><i>-</i><h4><a href="{:url('news/details',array('id'=>$newdt_tj['cn_id']))}">{$newdt_tj.cn_title}</a></h4><span>{$newdt_tj.cn_time|date='Y-m-d',###}</span></li>
+									{/volist}
+									
+								</ul>
+								
+							</div>
+							
+							
+							<div class="news-concent-box"  id="cont_news_2" style="display: none;">
+								<dl class="news-dl1">
+									{volist name='newhy_top' id='newhy_top'}
+									<dt><a href="{:url('news/details',array('id'=>$newhy_top['cn_id']))}"><img src="{neq name='newhy_top.cn_smallimg' value=''}/upload/images/{$newhy_top.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/></a></dt>
+									<dd>
+										<h4><a href="{:url('news/details',array('id'=>$newhy_top['cn_id']))}" style="color: #666;">{$newhy_top.cn_title}</a></h4>
+										<span>{$newhy_top.cn_time|date='Y-m-d',###}</span>
+										<p><a style="color: #666;" href="{:url('news/details',array('id'=>$newhy_top['cn_id']))}">{php}echo msubstr($newhy_top['cn_descr'],0,50){/php}</a></p>
+										<a href="{:url('news/details',array('id'=>$newhy_top['cn_id']))}">More...</a>
+									</dd>
+									{/volist}
+								</dl>
+								<ul>
+									{volist name='newhy_tj' id='newhy_tj'}
+									<li><i>-</i><h4><a href="{:url('news/details',array('id'=>$newhy_tj['cn_id']))}">{$newhy_tj.cn_title}</a></h4><span>{$newhy_tj.cn_time|date='Y-m-d',###}</span></li>
+									{/volist}
+									
+								</ul>
+								
+							</div>
+							
+							
+							
+						</div>
+						<div class="news-con-right">
+							<div class="news-title"><h3>Problem</h3><a href="{:url('news/index',array('tyid'=>13))}">MORE...</a></div>
+							<div class="qanda-con">
+								{volist name='cjwt_tj' id='cjwt_tj'}
+								<div class="wenda">
+									<a href="{:url('news/details',array('id'=>$cjwt_tj['cn_id']))}">
+									<div class="wenda-left"><img src="{neq name='cjwt_tj.cn_smallimg' value=''}/upload/images/{$cjwt_tj.cn_smallimg}{else /}/public/index/images/33.png{/neq}"/></div>
+									<div class="wenda-right">
+										<p class="spanwen"><i style="width: 30px;">ASK</i><span>{php}echo msubstr($cjwt_tj['cn_title'],0,25){/php}</span></p>
+										<p class="spanda"><i style="width: 30px;">ANS</i><span style="width: 80%;">{php}echo msubstr($cjwt_tj['cn_descr'],0,45){/php}</span></p>
+									</div>
+									</a>
+									
+								</div>
+								{/volist}
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		{include file='public/link_foot'}
+		{include file='public/foot'}
+		
+		
+	
+	<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        hashnavWatchState: true
+    });
+    var swiper2 = new Swiper('.swiper-container2', {
+        //pagination: '.swiper-pagination2',
+        nextButton: '.swiper-button-next2',
+        prevButton: '.swiper-button-prev2',
+        paginationClickable: true,
+        spaceBetween: 30,
+        //autoplay:3000
+    });
+    </script>
+		
+		
+		
+	</body>
+</html>

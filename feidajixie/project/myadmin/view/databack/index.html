@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>备份数据库</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('index')}">备份数据库</a>
+					<a href="{:url('huanyuan')}">还原数据库</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				<div class="webset_foot_date">
+					<form name="backvst" method="post" action="">
+					{$tablist}
+					<div class="back_buttion">
+						<span onclick="BackselectAll('backname[]')">全选/取消</span>
+						<span onclick="databackca('backname[]','deltuser','fukj')">优化</span>
+						<span onclick="dabacxiufu('backname[]','deltuser','fukj')">修复</span>
+						<span onclick="beginbackes('backname[]','deltuser','fukj')">开始备份</span>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        <!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：优化、修复、备份数据库
+	        -->
+	        <div class="control_pf_body" id="deltuser" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('deltuser')" onmousedown="addzindex('deltuser')">
+					<span id="datanames">数据库</span>
+					<em class="icon-remove" onclick="hidediv('deltuser','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="delt_tishi back_kj_cont" id="echo_val">
+        				
+        			</div>
+        		</div>
+        	</div>
+	    </div>
+	</body>
+</html>

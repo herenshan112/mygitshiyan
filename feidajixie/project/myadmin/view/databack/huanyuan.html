@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>备份数据库</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{:url('index')}">备份数据库</a>
+					<a class="active" href="{:url('huanyuan')}">还原数据库</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				<div class="webset_foot_date">
+					<form name="backvst" method="post" action="">
+					<div class="filenamlist">
+						<ul>
+							{volist name='tabellst' id='list'}
+							{eq name='list.filetype' value="0"}
+								<li class="hover">
+									<a href="{:url('huanyuan')}?nextfilename={$list.filenam}">
+										<i>&nbsp;</i>
+										<em >&nbsp;</em>
+										<span>{eq name='list.filenam' value='.'}上一级{else /}{$list.filenam}{/eq}</span>
+									</a>
+								</li>
+							{else /}
+								<li>
+									<i>
+										<input type="checkbox" name="backname[]" id="backname[]" checked value="{$list.filenam}" />
+									</i>
+									<em >&nbsp;</em>
+									<span>{$list.filenam}</span>
+								</li>
+							{/eq}
+							{/volist}
+						</ul>
+					</div>
+					<input type="hidden" name="fileurl" id="fileurl" value="{$nextflie}" />
+					<input type="hidden" name="alltabels" id="alltabels" value="{$alltabels}" />
+					<div class="back_buttion">
+						<span onclick="BackselectAll('backname[]')">全选/取消</span>
+						<span onclick="huanback('backname[]','deltuser','fukj')">开始还原</span>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        <!--
+	        	作者：herenshan112@163.com
+	        	时间：2016-12-26
+	        	描述：优化、修复、备份数据库
+	        -->
+	        <div class="control_pf_body" id="deltuser" >
+        		<div class="control_pf_top" onMouseOver="Move_obj('deltuser')" onmousedown="addzindex('deltuser')">
+					<span id="datanames">还原数据库</span>
+					<em class="icon-remove" onclick="hidediv('deltuser','fukj')"></em>
+        		</div>
+        		<div class="control_pf_foot">
+        			<div class="delt_tishi back_kj_cont" id="echo_val">
+        				
+        			</div>
+        		</div>
+        	</div>
+	    </div>
+	</body>
+</html>

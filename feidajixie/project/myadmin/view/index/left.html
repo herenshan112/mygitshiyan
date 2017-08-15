@@ -1,0 +1,179 @@
+<div class="crol_left_top">
+            		<img src="{neq name='lefadm.ada_imgpic' value=''}/upload/vip/{$lefadm.ada_imgpic}{else /}/public/admin/images/20.png{/neq}">
+            		<em>{neq name='lefadm.ada_name' value=''}{$lefadm.ada_name}{else /}{$lefadm.ad_username}{/neq}</em>
+            		<span>{$lefadm.grd_title}<i class="icon-caret-down"></i></span>
+            		<ul>
+            			<li><a class="J_menuItem" href="{:url('admingrod/mycont',array('action'=>'mycont','id'=>$lefadm['ad_id']))}"  data-index='161'>个人资料</a></li>
+            			<li><a class="J_menuItem"  data-index='162' href="{:url('admingrod/mycont',array('action'=>'mypwd','id'=>$lefadm['ad_id']))}">修改密码</a></li>
+            			<li class="xiang"></li>
+            			<li><a class="J_menuItemks" href="{:url('index/exitlogin')}">安全退出</a></li>
+            		</ul>
+            	</div>
+            	
+            	<div class="control_left_foot">
+            		<ul>
+            			<li {php}if(!in_array(1, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a class="nav_table" href="#" title="文章管理">
+            					<i class="icon-tasks"></i>
+            					<span>文章管理</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li {php}if(!in_array(2, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a class="J_menuItem" href="{:url('pagecont/index')}" data-index='16'>
+            							<span>内容列表</span>
+            						</a>
+            					</li>
+            					<li {php}if(!in_array(7, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a class="J_menuItem" href="{:url('pagecont/pagetype')}" data-index='17'>
+            							<span>栏目列表</span>
+            						</a>
+            					</li>
+            					<li {php}if(!in_array(14, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a class="J_menuItem" href="{:url('pagecont/index',array('action'=>'hszlst'))}" data-index='18'>
+            							<span>回收站</span>
+            						</a>
+            					</li>
+            				</ul>
+            				
+            			</li>
+            			
+            			<li  {php}if(!in_array(18, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a class="nav_table" href="#" title="广告管理">
+            					<i class="icon-list-alt"></i>
+            					<span>广告管理</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li  {php}if(!in_array(19, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a class="J_menuItem" href="{:url('advert/type')}" title="广告类型" data-index='14'>
+            							<span>广告类型</span>
+            						</a>
+            					</li>
+            					<li {php}if(!in_array(23, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a class="J_menuItem" href="{:url('advert/index')}" title="广告列表" data-index='15'>
+            							<span>广告列表</span>
+            						</a>
+            					</li>
+            				</ul>
+            				
+            			</li>
+            			
+            			<li  {php}if(!in_array(27, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a  class="J_menuItem" href="{:url('linkadmin/index')}" title="友情链接" data-index='13'><i class="icon-link"></i><span>友情链接</span></a>
+            			</li>
+            			<li {php}if(!in_array(52, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a  class="J_menuItem" href="{:url('mesadmin/index')}" title="客户留言"  data-index='12'><i class="icon-comments"></i><span>客户留言</span></a>
+            			</li>
+            			
+            			<!--li>
+            				<a class="nav_table" href="#" title="会员管理">
+            					<i class="icon-user-md"></i>
+            					<span>会员管理</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li>
+            						<a href="userlist.html" class="J_menuItem" data-index='11'>
+            							<span>会员列表</span>
+            						</a>
+            					</li>
+            					<li>
+            						<a href="usergrader.html" class="J_menuItem" data-index='10'>
+            							<span>会员等级</span>
+            						</a>
+            					</li>
+            				</ul>
+            				
+            			</li>
+            			            			
+            			<li>
+            				<a class="nav_table" href="#" title="招聘管理">
+            					<i class="icon-group"></i>
+            					<span>招聘管理</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li>
+            						<a href="zhiwei.html" class="J_menuItem" data-index='7'>
+            							<span>职位管理</span>
+            						</a>
+            					</li>
+            					<li>
+            						<a href="jianli.html" class="J_menuItem" data-index='8'>
+            							<span>应聘简历</span>
+            						</a>
+            					</li>
+            					<li>
+            						<a href="luqu.html" class="J_menuItem" data-index='9'>
+            							<span>录取管理</span>
+            						</a>
+            					</li>
+            				</ul>
+            				
+            			</li-->
+            			
+            			
+            			<li {php}if(!in_array(32, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a class="nav_table" href="#" title="系统管理员">
+            					<i class="icon-user"></i>
+            					<span>系统管理员</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li {php}if(!in_array(33, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a href="{:url('admingrod/index')}" class="J_menuItem" data-index='6'>
+            							<span>管理员列表</span>
+            						</a>
+            					</li>
+            					<li {php}if(!in_array(39, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a href="{:url('admingrod/grodindex')}" class="J_menuItem" data-index='5'>
+            							<span>管理权限</span>
+            						</a>
+            					</li>
+            				</ul>
+            				
+            			</li>
+            			
+            			<li  {php}if(!in_array(45, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            				<a class="nav_table" href="#" title="系统设置">
+            					<i class="icon-cogs"></i>
+            					<span>系统设置</span>
+            					<em></em>
+            				</a>
+            				
+            				<ul>
+            					<li  {php}if(!in_array(46, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a href="{:url('index/webset')}" class="J_menuItem" data-index='2'>
+            							<span>站点设置</span>
+            						</a>
+            					</li>
+            					<li {php}if(!in_array(47, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a href="{:url('types/index')}" class="J_menuItem" data-index='110'>
+            							<span>栏目类型</span>
+            						</a>
+            					</li>
+            					<li  {php}if(!in_array(51, explode('|',$lefadm['grd_arycon']))){echo 'style="display:none"';}{/php}>
+            						<a href="{:url('databack/index')}" class="J_menuItem" data-index='3'>
+            							<span>备份/还原数据</span>
+            						</a>
+            					</li>
+            					
+            					<li class="xiang"></li>
+            					<li>
+            						<a href="{:url('index/exitlogin')}" class="J_menuItemks" data-index='1'>
+            							<span>退出系统</span>
+            						</a>
+            					</li>
+            					
+            				</ul>
+            				
+            			</li>
+            			
+            		</ul>
+            	</div>

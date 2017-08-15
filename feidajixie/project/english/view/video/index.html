@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head'}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner'}
+		</div>
+		<!--面包屑-->		
+		<div class="crumb">
+			<div class="crumb-con">
+				<p><i class="iconfont">&#xe600;</i><span>Current Location：</span><a href="index.html">Home</a>- <a href="{:url('video/index')}">Video</a></p>
+			</div>
+		</div>
+		<!--视频中心-->
+		<div class="video-list-con">
+			<div class="video-lists">
+				<ul>
+					
+					{volist name='list' id='list'}
+					<li>
+						<div class="video-list">
+							<div class="video-img">
+								<a href="{:url('video/details',array('id'=>$list['cn_id']))}">
+									<img src="{neq name='list.cn_smallimg' value=''}/upload/images/{$list.cn_smallimg}{else /}/public/admin/images/33.png{/neq}">
+									<i><img src="/public/index/images/play.png"/></i>
+								</a>
+							</div>
+							<div class="video-text">
+								<h3><a href="{:url('video/details',array('id'=>$list['cn_id']))}">{php}echo msubstr($list['cn_title'],0,25){/php}</a></h3>
+								<span>{$list.cn_time|date='Y-m-d',###}</span>
+							</div>
+							
+						</div>
+					</li>
+					{/volist}
+					
+				</ul>
+				
+				<div class="page">
+							  	<div class="page-con">
+							  		{$pages}
+							  	</div>
+					</div>
+				
+				
+			</div>
+		</div>
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+	
+		
+		
+	</body>
+</html>

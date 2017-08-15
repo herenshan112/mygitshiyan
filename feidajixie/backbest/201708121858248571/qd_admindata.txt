@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `#^@_admindata`;
+CREATE TABLE `#^@_admindata` (
+  `ada_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '管理员id',
+  `ada_name` varchar(50) DEFAULT NULL COMMENT '管理员名称',
+  `ada_tel` varchar(20) DEFAULT NULL COMMENT '联系电话',
+  `ada_qq` varchar(20) DEFAULT NULL COMMENT 'QQ号码',
+  `ada_email` varchar(50) DEFAULT NULL COMMENT '电子邮箱',
+  `ada_address` varchar(255) DEFAULT NULL COMMENT '联系地址',
+  `ada_cont` mediumtext COMMENT '管理员介绍',
+  `ada_imgpic` varchar(255) DEFAULT NULL COMMENT '头像',
+  PRIMARY KEY (`ada_id`),
+  UNIQUE KEY `ada_id` (`ada_id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='管理员资料表';
+INSERT INTO `#^@_admindata` (ada_id,ada_name,ada_tel,ada_qq,ada_email,ada_address,ada_cont,ada_imgpic) VALUES ('2','何仁山','15010830317','532623622','532623622@qq.com','北京','技术','2017_08_08/20170808220539395502.png'),('1','秦东','15069130853','532623622','532623622@qq.com','北京朝阳区','我是一名程序','');
+

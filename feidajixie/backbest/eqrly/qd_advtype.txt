@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS `#^@_advtype`;
+CREATE TABLE `#^@_advtype` (
+  `advt_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `advt_title` varchar(100) DEFAULT '' COMMENT '位置名称',
+  `advt_fanwei` int(11) NOT NULL DEFAULT '0' COMMENT '有效范围',
+  `advt_cont` mediumtext COMMENT '描述',
+  `advt_setval` smallint(1) NOT NULL DEFAULT '0' COMMENT '是否启用',
+  `advt_time` int(50) NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `advt_uid` int(11) NOT NULL DEFAULT '0' COMMENT '写入人',
+  PRIMARY KEY (`advt_id`),
+  UNIQUE KEY `advt_id` (`advt_id`) USING BTREE,
+  UNIQUE KEY `advt_title` (`advt_title`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='广告位置';

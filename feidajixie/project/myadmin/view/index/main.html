@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="/public/admin/css/css.css" />
+		<link rel="stylesheet" href="/public/admin/css/admin_css.css" />
+		<script type="text/javascript" src="/public/admin/js/jquery-2.1.1.min.js" ></script>
+		<script type="text/javascript" src="/public/admin/js/echarts.js" ></script>
+		<script type="text/javascript" src="/public/admin/js/tabel.js" ></script>
+		<script type="text/javascript" src="/public/admin/js/admin.js" ></script>
+	</head>
+	<body>
+		
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				<div id="main" class='main_zxt'></div>
+				<div id="main1" class="main_bing"></div>
+				<div id="main2" class="main_bqxx" >
+					
+					<label>网站内容管理系统</label>
+					<p>版本：V 2.0.8</p>
+					<span>开发人员：秦东</span>
+					<span>QQ：532623622</span>
+					<span>TEL：15069130853</span>
+					<span>E-mail：532623622@qq.com</span>
+					<span>本程序未经授权不可用于商业用途</span>
+				</div>
+				<script>
+					//折线图
+					var xary=['周一','周二','周三','周四','周五','周六','周日'];
+					//var yary=[100, 12, 21, 54, '-','-' ,'-','-'];
+					//var myChar1=echarts.init(document.getElementById('main1'));
+					$.ajax({
+						type:"post",
+						url:host+"/myadmin/index/onemothzxt.html",
+						async:true,
+						data:{action:'zxt'},
+						dataType:'json',
+						success:function(data){
+							
+							zhexiantu('main','信息发布统计图','一周数据',xary,data.info);
+							bingxingtu('main1','管理员发布数量比例图','所有数据','发布数量',data.bing);
+						},
+						error:function(){
+							
+						}
+					});
+        			/*//饼状图
+        			var bingdata=[
+        				{value:0, name:'直接访问'},
+					    {value:0, name:'邮件营销'},
+					    
+        			]
+        			bingxingtu('main1','管理员发布数量比例图','所有数据','发布数量',bingdata);*/
+        			
+				</script>
+				
+			</div>
+		</div>
+	</body>
+</html>

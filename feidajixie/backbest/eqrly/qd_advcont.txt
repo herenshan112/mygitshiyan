@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS `#^@_advcont`;
+CREATE TABLE `#^@_advcont` (
+  `advc_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `advc_title` varchar(255) DEFAULT NULL COMMENT 'banner标题',
+  `advc_type` int(11) NOT NULL DEFAULT '0' COMMENT '所属范围',
+  `advc_images` varchar(255) DEFAULT NULL COMMENT '封面图片',
+  `advc_url` varchar(255) DEFAULT NULL COMMENT '尾部链接',
+  `advc_cont` mediumtext COMMENT '详细介绍',
+  `advc_setval` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  `advc_time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `advc_uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '写入人',
+  PRIMARY KEY (`advc_id`),
+  UNIQUE KEY `id` (`advc_id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='广告内容';

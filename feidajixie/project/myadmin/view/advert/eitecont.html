@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改内容</title>
+		{include file='public/css_js' /}
+		{include file='public/ueditor_cssjs' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{:url('advert/index')}">内容列表</a>
+					<a href="{:url('advert/index',array('action'=>'add'))}" {php}if(!in_array(24, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加内容</a>
+					<a class="active" href="{:url('advert/index',array('action'=>'add'))}">修改内容</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<form name="addggtype" method="post" action="{:url('advert/index',array('action'=>'eitecl','id'=>$list['advc_id']))}">
+						<div class="webset_input_text">
+							<span>标题：</span>
+							<input type="text" name="title" id="title" placeholder="请输入位置名称" value="{$list.advc_title}">
+							<input type="hidden" name="oldtitle" id="oldtitle" value="{$list.advc_title}" />
+							<em><i class="icon-exclamation-sign"></i>请输入位置名称</em>
+						</div>
+						<div class="webset_input_text">
+							<span>所属类型：</span>
+							<select name="typeval" id="typeval">
+								<option value="0">请选择广告类型</option>
+								{volist name='tylist' id='tylist'}
+									<option value="{$tylist.advt_id}" {eq name='list.advc_type' value='$tylist["advt_id"]'}selected{/eq}>{$tylist.advt_title}</option>
+								{/volist}
+							</select>
+							<em></em>
+						</div>
+						<div class="webset_upimg_text">
+							<span>封面图：</span>
+							<input type="text" name="smlpicval" id="smlpicval" placeholder="请上传封面图" value="{$list.advc_images}">
+							<em onclick="getElementById('smlpicbut').click()">&nbsp;</em>
+							<a class="webset_a"><img id="smlpiclook" src="{neq name='list.advc_images' value=''}/upload/images/{$list.advc_images}{else /}/public/admin/images/33.png{/neq}" alt="上传图片" /></a>
+							<h2 id="uppic_error_sml"></h2>
+							<input type="file" multiple="smlpicbut" id="smlpicbut" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="smlpictype" id="smlpictype" value="3"> 
+						</div>
+						<div class="webset_input_text">
+							<span>外部链接：</span>
+							<input type="text" name="weburl" id="weburl" placeholder="请输入外部链接" value="{$list.advc_url}">
+							<em style="display: none;"><i class="icon-exclamation-sign"></i>请输入外部链接</em>
+						</div>
+						<div class="webset_textarea_fwb" style="height: 440px; overflow: hidden; overflow-y: auto;">
+							
+							
+							<table border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="200" align="right"><span>详细描述：</span></td>
+									<td><textarea name="conttent" id="conttent" class="gao_du_textarea" style="width:700px;height:300px;">{$list.advc_cont}</textarea></td>
+								</tr>
+							</table>
+							
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="setval" id="setval" value="1" {eq name='list.advc_setval' value='1'}checked{/eq}>
+							<em>启用</em>
+							<input type="radio" name="setval" id="setval" value="0" {neq name='list.advc_setval' value='1'}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+
+    		var ue = UE.getEditor('conttent');
+    		
+    	</script>
+	</body>
+</html>

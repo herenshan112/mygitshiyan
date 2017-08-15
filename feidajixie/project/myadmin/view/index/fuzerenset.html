@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站点设置</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				
+				<div class="webset_top">
+					<a href="{:url('index/webset')}">基本信息</a>
+					<a href="{:url('index/seoset')}">SEO设置</a>
+					<a class="active" href="{:url('index/fuzerenset')}">负责人设置</a>
+					<a href="{:url('index/hexin')}">核心设置</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('index/fuzerenset')}">
+						<div class="webset_input_text">
+							<span>负责人姓名：</span>
+							<input type="text" name="chargename" id="chargename" placeholder="请输入负责人姓名" value="{$chargename}">
+							<em><i class="icon-exclamation-sign"></i>请输入负责人姓名</em>
+						</div>
+						<div class="webset_input_text">
+							<span>手机号码：</span>
+							<input type="text" name="mobile" id="mobile" placeholder="请输入手机号码" value="{$mobile}">
+							<em><i class="icon-exclamation-sign"></i>请输入手机号码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>座机号码：</span>
+							<input type="text" name="telephone" id="telephone" placeholder="请输入座机号码" value="{$telephone}">
+							<em><i class="icon-exclamation-sign"></i>请输入座机号码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>传真号码：</span>
+							<input type="text" name="faxnum" id="faxnum" placeholder="请输入传真号码" value="{$faxnum}">
+							<em><i class="icon-exclamation-sign"></i>请输入传真号码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>E-mail：</span>
+							<input type="text" name="email" id="email" placeholder="请输入传真号码" value="{$email}">
+							<em><i class="icon-exclamation-sign"></i>请输入传真号码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>邮编：</span>
+							<input type="text" name="youbiannum" id="youbiannum" placeholder="请输入传真号码" value="{$youbiannum}">
+							<em><i class="icon-exclamation-sign"></i>请输入传真号码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>QQ号码：</span>
+							<input type="text" name="qqnum" id="qqnum" placeholder="请输入传真号码" value="{$qqnum}">
+							<em><i class="icon-exclamation-sign"></i>请输入传真号码</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" name='fzrtijiao' id='fzrtijiao' value="确认提交" />
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

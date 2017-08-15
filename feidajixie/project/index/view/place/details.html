@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head'}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner'}
+		</div>
+		<!--面包屑-->		
+		<div class="crumb">
+			<div class="crumb-con">
+				<p><i class="iconfont">&#xe600;</i><span>当前位置：</span><a href="index.html">首页</a>- <a href="javascript:;">厂房厂貌</a></p>
+				
+			</div>
+		</div>
+		<!--产品中心-->
+		<div class="section product pro-detail">
+			<div class="section-server">
+				<div class="new_div">
+					<div class="new_title">{$list.cn_title}</div>
+					<div class="new_time">
+						
+						<div class="new_fenxiang">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<span class="jiathis_txt" style="margin: 0 20px 0 0;">DATE：{$list.cn_time|date='Y-m-d',###}</span>
+							<span class="jiathis_txt">分享到：</span>
+							<a class="jiathis_button_qzone">QQ空间</a>
+							<a class="jiathis_button_tsina">新浪微博</a>
+							<a class="jiathis_button_tqq">腾讯微博</a>
+							<a class="jiathis_button_weixin">微信</a>
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+						<!-- JiaThis Button END -->
+						</div>
+						
+					</div>
+					<div class="new_cont">
+						    {$list.cn_content}
+						
+					</div>
+					<div class="new_pr_nex">
+						上一篇：{$prourl}<br>
+						下一篇：{$nexurl}</a>
+					</div>
+				</div>
+				<div class="new_div_xg">
+					<div class="new_xg_title">相关文章</div>
+					<div class="new_xg_cont">
+						{volist name='in_fccon' id='in_fccon'}
+						<div class="new_xg_lst">
+							{volist name='in_fccon' id='xgprod' key='xgi'}
+							<a {neq name='xgi' value='1'}class="hover"{/neq} href="{:url('place/details',array('id'=>$xgprod['cn_id']))}"><em>{$xgprod.cn_title}</em><i>{$xgprod.cn_time|date='Y-m-d',###}</i></a>
+							{/volist}
+						</div>
+						{/volist}
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+		
+	</body>
+</html>

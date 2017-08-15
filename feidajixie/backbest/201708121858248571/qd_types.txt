@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS `#^@_types`;
+CREATE TABLE `#^@_types` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT '0' COMMENT '栏目类型名称',
+  `mobelurl` varchar(255) DEFAULT '0' COMMENT '模版地址',
+  `contval` mediumtext COMMENT '描述',
+  `setval` int(1) NOT NULL DEFAULT '1' COMMENT '是否启用',
+  `uid` int(11) unsigned DEFAULT '0' COMMENT '发布人',
+  `time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
+  `onetwo` int(1) NOT NULL DEFAULT '1' COMMENT '是否为单页文档',
+  `methodse` varchar(100) DEFAULT 'index' COMMENT '处理方法',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`) USING BTREE,
+  KEY `title` (`title`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='栏目类型';
+INSERT INTO `#^@_types` (id,title,mobelurl,contval,setval,uid,time,onetwo,methodse) VALUES ('1','单页文档','index.html','单页文档，例如公司简介，联系我们等页面。','1','1','1497753394','0','about'),('2','文章列表文档','pagecont.html','新闻类型的文章','1','1','1497754512','1','newslist'),('3','图片集文档','imagescont.html','是用于多图片的文档','1','1','1497763584','1','imglist'),('4','视频文档','voidmode.html','播放视屏的文档类型','1','1','1497765445','1','voidelist'),('5','下载类型','main.html','带有附件上传的文档','0','1','1497765472','1','downlist'),('6','招聘文档','main.html','发布招聘信息的文档','0','1','1497765494','1','reclist');
+

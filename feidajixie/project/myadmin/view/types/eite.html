@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加栏目类型</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a href="{:url('index')}">类型列表</a>
+					<a href="{:url('add')}" {php}if(!in_array(48, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加类型</a>
+					<a class="active" href="{:url('eite',array('id'=>$list['id']))}">添加类型</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<form name="addggtype" method="post" action="{:url('eitecl',array('id'=>$list['id']))}">
+						<div class="webset_input_text">
+							<span>类型名称：</span>
+							<input type="text" name="title" id="title" placeholder="请输入类型名称" value="{$list.title}">
+							<input type="hidden" name="oldtitle" id="oldtitle" value="{$list.title}" />
+							<em><i class="icon-exclamation-sign"></i>请输入类型名称</em>
+						</div>
+						
+						<div class="webset_upimg_text">
+							<span>类型文件：</span>
+							<input type="text" name="filevalue" id="filevalue" placeholder="请上传模版文件" value="{$list.mobelurl}">
+							<em onclick="getElementById('filetypecnt').click()">&nbsp;</em>
+							<a class="webset_a">&nbsp;</a>
+							<h2 id="upmsg_error_fh"></h2>
+							<input type="file" multiple="filetypecnt" id="filetypecnt" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="filetypecntval" id="filetypecntval" value="1"> 
+						</div>
+						<div class="webset_input_text">
+							<span>处理方法：</span>
+							<input type="text" name="methodse" id="methodse" placeholder="请输入处理方法" value="{$list.methodse}">
+							<em><i class="icon-exclamation-sign"></i>请输入处理方法</em>
+						</div>
+						<!--<div class="webset_upimg_text">
+							<span>模版：</span>
+							<input type="text" name="contsamllimg" id="contsamllimg" placeholder="请上传模版文件" value="">
+							<label onmouseover="lookimg('img_div')" onmouseout="yincangimg('img_div')">
+								<i>&nbsp;</i>
+								<p id="img_div" onmouseover="lookimg('img_div')" onmouseout="yincangimg('img_div')" style="display: none;"><img id="uplookimg" src="/public/admin/images/33.png"></p>
+							</label>
+							<em onclick="getElementById('upsamlimg').click()">&nbsp;</em>
+							<a class="webset_a">&nbsp;</a>
+							<h2 id="upmsg_error"></h2>
+							<input type="file" multiple="upsamlimg" id="upsamlimg" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"> <input type="hidden" name="upsamlimgset" id="upsamlimgset" value="1"> 
+						</div>-->
+						
+						
+						<div class='webset_radio'>
+							<span>文档类型：</span>
+							<input type="radio" name="onetwo" id="onetwo" value="1" {eq name='list.onetwo' value='1'}checked{/eq}>
+							<em>多文档</em>
+							<input type="radio" name="onetwo" id="onetwo" value="0" {neq name='list.onetwo' value='1'}checked{/neq}>
+							<em>单页</em>
+						</div>
+						
+						<div class="webset_textarea">
+							<span>类型描述：</span>
+							<textarea name="miaoshu" id="miaoshu" class="gao_du_textarea">{$list.contval}</textarea>
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="setval" id="setval" value="1" {eq name='list.setval' value='1'}checked{/eq}>
+							<em>启用</em>
+							<input type="radio" name="setval" id="setval" value="0" {neq name='list.setval' value='1'}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--<form method="post" name="upload_file1" id="upload_file12" action="{:url('upload/uploades')}">
+			<input type="file" name="upload_file" id="upload_file" />
+			<input type="hidden" name="typeid" id="typeid" value="1"> 
+			<input type="submit" value="tijiao" />
+		</form>-->
+		
+		
+	</body>
+</html>

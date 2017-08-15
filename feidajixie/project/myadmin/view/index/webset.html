@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站点设置</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				
+				<div class="webset_top">
+					<a class="active" href="{:url('index/webset')}">基本信息</a>
+					<a href="{:url('index/seoset')}">SEO设置</a>
+					<a href="{:url('index/fuzerenset')}">负责人设置</a>
+					<a href="{:url('index/hexin')}">核心设置</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('index/webset')}">
+						<div class="webset_input_text">
+							<span style="width: 100px;">站点名称：</span>
+							<input type="text" name="webname" id="webname" placeholder="请输入站点名称" value="{$webname}">
+							<span style="width: 100px;">English：</span>
+							<input type="text" name="enwebname" id="enwebname" placeholder="请输入站点名称" value="{$enwebname}">
+							<em><i class="icon-exclamation-sign"></i>请输入站点名称</em>
+						</div>
+						<div class="webset_input_text">
+							<span style="width: 100px;">公司名称：</span>
+							<input type="text" name="company" id="company" placeholder="请输入公司名称" value="{$company}">
+							<span style="width: 100px;">English：</span>
+							<input type="text" name="encompany" id="encompany" placeholder="请输入站点名称" value="{$encompany}">
+							<em><i class="icon-exclamation-sign"></i>请输入公司名称</em>
+						</div>
+						<div class="webset_input_text">
+							<span style="width: 100px;">公司地址：</span>
+							<input type="text" name="companyadd" id="companyadd" placeholder="请输入公司地址" value="{$companyadd}">
+							<span style="width: 100px;">English：</span>
+							<input type="text" name="encompanyadd" id="encompanyadd" placeholder="请输入站点名称" value="{$encompanyadd}">
+							<em><i class="icon-exclamation-sign"></i>请输入公司地址</em>
+						</div>
+						<div class="webset_input_text">
+							<span style="width: 100px;">公司网址：</span>
+							<input type="text" name="weburl" id="weburl" placeholder="请输入公司网址" value="{$weburl}">
+							<em><i class="icon-exclamation-sign"></i>请输入公司地址</em>
+						</div>
+						<div class="webset_input_text">
+							<span style="width: 100px;">ICP备案号：</span>
+							<input type="text" name="icpnum" id="icpnum" placeholder="请输入ICP备案号" value="{$icpnum}">
+							<span style="width: 100px;">English：</span>
+							<input type="text" name="enicpnum" id="enicpnum" placeholder="请输入站点名称" value="{$enicpnum}">
+							<em><i class="icon-exclamation-sign"></i>请输入ICP备案号</em>
+						</div>
+						<div class='webset_radio'>
+							<span style="width: 100px;">网站状态：</span>
+							<input type="radio" name="websetval" id="websetval" value="1" {eq name='websetval' value="1"}checked{/eq}>
+							<em>开启</em>
+							<input type="radio" name="websetval" id="websetval" value="0" {neq name='websetval' value="1"}checked{/neq}>
+							<em>关闭</em>
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" name="tijiao" id="tijiao" value="确认提交" />
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

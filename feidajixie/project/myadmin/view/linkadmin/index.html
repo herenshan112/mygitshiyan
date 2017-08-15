@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>友情链接</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('linkadmin/index')}">友情链接列表</a>
+					<a href="{:url('linkadmin/index',array('action'=>'add'))}" {php}if(!in_array(28, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加友情链接</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<table class="webset_tabel">
+						<tr>
+							<th width="5%">ID</th>
+							<th width="17%">网站名称</th>
+							<th width="23%">网址</th>
+							<th width="16%">logo</th>
+							<th width="11%">添加时间</th>
+							<th width="8%">发布人</th>
+							<th width="5%">状态</th>
+							<th width="15%">操作</th>
+						</tr>
+						{volist name='list' id='list' empty='$empt'}
+						<tr>
+							<td>{$list.id}</td>
+							<td>{$list.title}</td>
+							<td align="left">{$list.linkurl}</td>
+							<td><img src="{neq name='list.images' value=''}/upload/images/{$list.images}{else /}/public/admin/images/33.png{/neq}" height="50px" border="0"></td>
+							<td>{$list.time|date='Y-m-d H:i:s',###}</td>
+							<td>{$list.lnk_uid|get_admin}</td>
+							<td><i class="{eq name='list.linkset' value='1'}icon-unlock lock_color{else /}icon-lock lock_color_red{/eq}"></i></td>
+							<td>
+								<a class="icon-edit webset_bianji_icon" href="{:url('linkadmin/index',array('action'=>'eite','id'=>$list['id']))}" title="修改" {php}if(!in_array(29, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-trash webset_bianji_icon" onclick="deltall({$list.id},'deltcont','fukj','{:url('deltlink')}')" title="删除" {php}if(!in_array(30, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-eye-open webset_bianji_icon" href="{php}if(strstr($list['linkurl'],'http')){echo $list['linkurl'];}elseif($list['linkurl'] != ''){echo 'http://'.$list['linkurl'];}else{echo '#';}{/php}" title="查看" target="_blank" {php}if(!in_array(31, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+							</td>
+						</tr>
+						{/volist}
+						<tr>
+							<td colspan="8">
+								<div>
+									{$page}
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        {include file='public/delte' /}
+		</div>
+		
+		
+	</body>
+</html>

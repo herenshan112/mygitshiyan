@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head'}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner'}
+		</div>
+		<!--面包屑-->		
+		<div class="crumb">
+			<div class="crumb-con">
+				<p><i class="iconfont">&#xe600;</i><span>Current Location：</span><a href="index.html">Home</a>- <a href="javascript:;">Product</a></p>
+				
+			</div>
+		</div>
+		<!--产品中心-->
+		<div class="section product pro-detail">
+			<div class="section-server">
+				<div class="section-confb">
+					<div class="product-con">
+						<div class="product-left">
+							<div class="product-list">
+								<ul>
+									{volist name='protym' id='protym'}
+									<li {eq name='protym.pty_id' value='$tyid'}class="active"{/eq}><i></i><a href="{:url('product/index',array('tyid'=>$protym['pty_id']))}">{php}echo msubstr($protym['pty_title'],0,19){/php}</a></li>
+									{/volist}
+								</ul>
+								
+							</div>
+							<div class="product-tel"><img src="/public/index/images/tel2_1.png"/></div>
+							
+						</div>
+						<div class="product-right product-detail">
+							<div class="detail-top">
+								<div class="de-top-left">
+									<div class="swiper-container">
+								        <div class="swiper-wrapper">
+								        	{volist name='list.imageary' id='impicary'}
+								            <div class="swiper-slide"><a target="_blank" href="{$impicary.imgsrc}"><img src="{$impicary.imgsrc}" alt="{$impicary.title}" /></a></div>
+								            {/volist}
+								            
+								        </div>
+								        <!-- Add Pagination -->
+								        <div class="swiper-pagination"></div>
+								        <div class="swiper-button-next"></div>
+										<div class="swiper-button-prev"></div>
+								    </div>
+								</div>
+								<div class="de-top-right">
+									<h3>{$list.cn_title}</h3>
+									<p>{php}echo msubstr($list['cn_descr'],0,60){/php}</p>
+									<img src="/public/index/images/de-top.jpg"/>
+									<a href=""><img src="/public/index/images/zixun_1.png"/></a>
+									<div class="de-right-p"><p class="de-right-tel">Sales Hotline：<span>400-000-3232</span></p></div>
+									<div class="de-right-next-prev-page">
+										<p>Previous：{$prourl}</p>
+										<p>Next：{$nexurl}</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="detail-bottom">
+								<div class="detail-section">
+									<div class="detail-section-title">
+										<ul class="chanpin-title">
+											<li class="active" style="font-size: 18px;">Details</li>
+											<li style="font-size: 18px;">Parameter</li>
+										</ul>
+									</div>
+									<div class="detail-section-con">
+										<ul>
+											<li style="display: block;">
+													　{$list.cn_content}
+											</li>
+											<li>
+													　{$list.cn_guigecanshu}
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+								
+							<div class="detail-section">
+									<div class="detail-section-title">
+										<ul>
+											<li class="active" style="font-size: 18px;">Purchase</li>
+										</ul>
+									</div>
+									<div class="detail-section-con">
+										<div class="caigouform">
+										
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Name</span><input type="text" name="callname" id="callname" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Tel</span><input type="text" name="tel" id="tel" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>E-mail</span><input type="text" name="emaile" id="emaile" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Addres</span><input type="text" name="addres" id="addres" /></label>
+											<label for="" class="from2"><span style="letter-spacing:0"><i>*</i>Content</span><textarea name="" rows="" cols=""  name="beizhu" id="beizhu"></textarea></label>
+											<label for="" class="from3"><button onclick="submessage({$list.cn_id})">Submit</button><button onclick="quxiao()">Cancel</button></label>
+										
+										</div>
+									</div>
+								</div>	
+								
+								
+								<div class="detail-section">
+									<div class="detail-section-title">
+										<ul>
+											<li class="active" style="font-size: 18px;">Related products</li>
+										</ul>
+									</div>
+									<div class="detail-section-con">
+										<div class="xiangguanchanpin">
+<div class="comein-fengcai">
+<!-- Swiper -->
+    <div class="swiper-container2">
+        <div class="swiper-wrapper">
+        	{volist name='in_fccon' id='in_fccon'}
+            <div class="swiper-slide">
+            	<ul>
+            		{volist name='in_fccon' id='xgprod'}
+            		<li><a href="{:url('product/details',array('id'=>$xgprod['cn_id']))}"><img src="{neq name='xgprod.cn_smallimg' value=''}/upload/images/{$xgprod.cn_smallimg}{else /}/public/admin/images/33.png{/neq}"/><span>{$xgprod.cn_title}</span></a></li>
+            		{/volist}
+            	</ul>
+            </div>
+            {/volist}
+            
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination2"></div>
+        <div class="swiper-button-next2">&gt;</div>
+		<div class="swiper-button-prev2"><</div>
+    </div>
+</div>
+											
+										
+										</div>
+									</div>
+								</div>	
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+							</div>  
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+	<script>
+	$(document).ready(function(){
+		$(".chanpin-title").on("click","li",function(){
+			$(this).addClass("active").siblings("li").removeClass("active");
+			var thisindex=$(this).index();
+			$(".detail-section-con").find("li").eq(thisindex).show().siblings("li").hide();
+		})
+		
+	})
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        hashnavWatchState: true
+    });
+     var swiper2 = new Swiper('.swiper-container2', {
+        //pagination: '.swiper-pagination2',
+        nextButton: '.swiper-button-next2',
+        prevButton: '.swiper-button-prev2',
+        paginationClickable: true,
+        spaceBetween: 30,
+        //autoplay:3000
+    });
+    </script>
+		
+		
+		
+	</body>
+</html>

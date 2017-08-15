@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站点设置</title>
+		{include file='public/css_js'}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				
+				<div class="webset_top">
+					<a href="{:url('index/webset')}">基本信息</a>
+					<a class="active" href="{:url('index/seoset')}">SEO设置</a>
+					<a href="{:url('index/fuzerenset')}">负责人设置</a>
+					<a href="{:url('index/hexin')}">核心设置</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="">
+						<div class="webset_input_text">
+							<span style="width: 100px;">站点关键词：</span>
+							<input type="text" name="keywords" id="keywords" placeholder="请输入关键词" value="{$keywords}">
+							<span style="width: 100px;">English：</span>
+							<input type="text" name="enkeywords" id="enkeywords" placeholder="请输入站点名称" value="{$enkeywords}">
+							<em><i class="icon-exclamation-sign"></i>请输入关键词</em>
+						</div>
+						<div class="webset_textarea">
+							<span  style="width: 100px;">站点描述：</span>
+							<textarea name="description" id="description" class="gao_du_textarea">{$description}</textarea>
+							<span style="width: 100px;">English：</span>
+							<textarea name="endescription" id="endescription" class="gao_du_textarea">{$endescription}</textarea>
+						</div>
+						
+						<div class="buttion_submit">
+							<input type="submit" name='seosettj' id='seosettj' value="确认提交" />
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

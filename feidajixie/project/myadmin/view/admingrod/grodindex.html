@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理权限</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('admingrod/grodindex')}">权限列表</a>
+					<a href="{:url('admingrod/grodindex',array('action'=>'add'))}" {php}if(!in_array(40, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加权限</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<table class="webset_tabel">
+						<tr>
+							<th width="5%">ID</th>
+							<th width="15%">权限名称</th>
+							<th width="50%">权限描述</th>
+							<th width="5%">状态</th>
+							<th width="25%">操作</th>
+						</tr>
+						{volist name='list' id='list' empty='$empt'}
+						<tr>
+							<td>{$list.grd_id}</td>
+							<td>{$list.grd_title}</td>
+							<td align="left">{$list.grd_cont}</td>
+							<td><i class="{eq name='list.grd_setval' value='1'}icon-unlock lock_color{else /}icon-lock lock_color_red{/eq}"></i></td>
+							<td>
+								<a class="icon-money webset_bianji_icon" onclick="peizhiajax({$list.grd_id},'setgrd','fukj','{:url('grodindex',array('action'=>'ajaxpeizi'))}','{:url('grodindex',array('action'=>'ajaxpeizicl'))}')" title="权限设置" {php}if(!in_array(41, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-edit webset_bianji_icon" onclick="eiteajax({$list.grd_id},'eitegrd','fukj','{:url('grodindex',array('action'=>'ajaxeite'))}','{:url('grodindex',array('action'=>'ajaxeitecl'))}')" title="修改" {php}if(!in_array(42, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-trash webset_bianji_icon" onclick="deltall({$list.grd_id},'deltcont','fukj','{:url('delgrade')}')" title="删除" {php}if(!in_array(43, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-eye-open webset_bianji_icon" onclick="lookgrade({$list.grd_id},'lookgrd','fukj','{:url('grodindex',array('action'=>'ajaxpeizi'))}')" title="查看" {php}if(!in_array(44, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+							</td>
+						</tr>
+						{/volist}
+						<tr>
+							<td colspan="5">
+								<div>
+									{$page}
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+        <div class="control_pf_bj" id="fukj">
+        	<em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+        	{include file='public/delte' /}
+        	{include file='public/grader' /}
+        </div>
+		
+			
+		</script>
+		
+	</body>
+</html>

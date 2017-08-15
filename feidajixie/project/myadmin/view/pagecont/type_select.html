@@ -1,0 +1,10 @@
+<!--文章所属栏目-->
+<div class="webset_input_text">
+							<span>所属栏目：</span>
+							<select name="typeval" id="typeval" {eq name='seltval' value='1'}onchange="choicetype('typeval')"{/eq}>
+								<!--option value="0">※※※请选择栏目类型※※※</option-->
+								{volist name='tylist' id='lxlist'}
+									<option clfangfa = "{$lxlist.methodse}" value="{$lxlist.pty_id}"  {eq name="list.cn_type" value="$lxlist.pty_id"}selected{/eq} >{$lxlist.delimiter}{$lxlist.pty_title}</option>
+								{/volist}							</select>
+							<em></em>
+						</div>

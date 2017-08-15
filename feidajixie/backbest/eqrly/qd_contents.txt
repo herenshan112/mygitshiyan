@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS `#^@_contents`;
+CREATE TABLE `#^@_contents` (
+  `cn_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cn_title` varchar(200) DEFAULT '0' COMMENT '文档标题',
+  `cn_attr` varchar(30) NOT NULL DEFAULT '0' COMMENT '文档属性',
+  `cn_type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文档分类',
+  `cn_keyword` varchar(255) DEFAULT '0' COMMENT '关键词',
+  `cn_descr` mediumtext COMMENT '描述',
+  `cn_smallimg` varchar(255) DEFAULT '0' COMMENT '封面小图',
+  `cn_bigimg` varchar(255) DEFAULT '0' COMMENT '封面大图',
+  `cn_sort` smallint(10) unsigned DEFAULT '50' COMMENT '排序',
+  `cn_urllinks` varchar(255) DEFAULT '0' COMMENT '外部链接',
+  `cn_content` mediumtext COMMENT '详细内容',
+  `cn_setval` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  `cn_time` int(50) unsigned NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `cn_uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '写入人',
+  `cn_look` int(10) DEFAULT '0' COMMENT '阅读量',
+  `cn_delt` smallint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否已删除',
+  `cn_imgary` mediumtext COMMENT '图片集',
+  `cn_deltime` int(11) NOT NULL DEFAULT '0' COMMENT '删除时间',
+  `cn_deituid` int(11) NOT NULL DEFAULT '0' COMMENT '删除人',
+  `cn_voidurl` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cn_id`),
+  UNIQUE KEY `id` (`cn_id`) USING BTREE,
+  KEY `title` (`cn_title`) USING BTREE,
+  KEY `idpx` (`cn_id`,`cn_sort`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>栏目类型列表</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('index')}">类型列表</a>
+					<a href="{:url('add')}" {php}if(!in_array(48, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加类型</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					<table class="webset_tabel">
+						<tr>
+							<th width="5%">ID</th>
+							<th width="20%">类型名称</th>
+							<th width="15%">类型模版</th>
+							<th width="13%">处理方法</th>
+							<th width="15%">发布时间</th>
+							<th width="12%">发布人</th>
+							<th width="5%">状态</th>
+							<th width="15%">操作</th>
+						</tr>
+						{volist name='list' id='list'}
+						<tr>
+							<td>{$list.id}</td>
+							<td>{$list.title}</td>
+							<td>{$list.mobelurl}</td>
+							<td>{$list.methodse}</td>
+							<td>{$list.time|date='Y-m-d H:i:s',###}</td>
+							<td>秦东</td>
+							<td><i class="{eq name='list.setval' value='1'}icon-unlock lock_color{else /}icon-lock lock_color_red{/eq}"></i></td>
+							<td>
+								<a class="icon-edit webset_bianji_icon" href="{:url('eite',array('id'=>$list['id']))}" title="修改" {php}if(!in_array(49, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<a class="icon-trash webset_bianji_icon" onclick=deltall({$list.id},'deltcont','fukj','{:url("delttypes")}') title="删除" {php}if(!in_array(50, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>&nbsp;</a>
+								<!--<a class="icon-eye-open webset_bianji_icon" href="#" title="查看">&nbsp;</a>-->
+							</td>
+						</tr>
+						{/volist}
+						<tr>
+							<td colspan="8">
+								<div>
+									{$page}
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        <!--delte-->
+	        {include file='public/delte' /}
+		</div>
+		
+		
+	</body>
+</html>

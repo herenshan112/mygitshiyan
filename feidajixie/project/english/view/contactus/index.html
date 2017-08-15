@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head' /}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner' /}
+		</div>
+		<!--面包屑-->		
+		<div class="crumb">
+			<div class="crumb-con">
+				<p><i class="iconfont">&#xe600;</i><span>Current Location：</span><a href="index.html">Home</a>- <a href="javascript:;">Contact Us</a></p>
+				
+			</div>
+		</div>
+		<!--产品中心-->
+		<div class="section product pro-detail">
+			<div class="section-server">
+				<div class="caus_div">
+					
+				
+					<!--引用百度地图API-->
+				<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=OBFrTs0z4ij2buutYkLejwVqdmG4VU6W"></script>
+				<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=OBFrTs0z4ij2buutYkLejwVqdmG4VU6W&amp;services=&amp;t=20170803155555"></script>
+					<div id="map" class="map_kj"></div>
+					<script type="text/javascript">
+						// 百度地图API功能
+						// 百度地图API功能
+						var map = new BMap.Map("map");
+						var point = new BMap.Point(121.485699,37.431406);
+						map.centerAndZoom(point, 13);
+						var marker = new BMap.Marker(point);  // 创建标注
+						map.addOverlay(marker);               // 将标注添加到地图中
+						marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+						map.setCurrentCity("烟台");          // 设置地图显示的城市 此项是必须设置的
+						map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+						
+						
+						var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+						map.addControl(ctrl_nav);
+						var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+						map.addControl(ctrl_sca);
+	
+						var opts = {
+						  position : point,    // 指定文本标注所在的地理位置
+						  offset   : new BMap.Size(0, 10)    //设置文本偏移量
+						}
+						var label = new BMap.Label("Yantai Feida Machinery Equipment Co., Ltd.", opts);  // 创建文本标注对象
+							label.setStyle({
+								 color : "red",
+								 fontSize : "12px",
+								 height : "20px",
+								 lineHeight : "20px",
+								 fontFamily:"微软雅黑"
+							 });
+						map.addOverlay(label);  
+					</script>
+					
+					<div class="caus_cont">
+						<div class="caus_title"><img src="/public/index/images/4.png"></div>
+						<div class="caus_cont_ls">
+							<label>
+								<i class="tb1">&nbsp;</i>
+								<em>Tel：</em>
+								<span>{$list.telval}</span>
+							</label>
+							<label>
+								<i class="tb2">&nbsp;</i>
+								<em>Fax：</em>
+								<span>{$list.faxnum}</span>
+							</label>
+							<label>
+								<i class="tb3">&nbsp;</i>
+								<em>Zip：</em>
+								<span>{$list.webyoubian}</span>
+							</label>
+							<label>
+								<i class="tb4">&nbsp;</i>
+								<em>Web：</em>
+								<span>{$list.weburl}</span>
+							</label>
+							<label>
+								<i class="tb5">&nbsp;</i>
+								<em>E-mail：</em>
+								<span>{$list.email}</span>
+							</label>
+							<label>
+								<i class="tb6">&nbsp;</i>
+								<em>Address：</em>
+								<span style="width: 250px;">{$list.encompanyadd}</span>
+							</label>
+						</div>
+						<div class="caus_ewm"><img src="/public/index/images/14.png"></div>
+					</div>
+					
+					
+					
+				</div>
+				<div class="caus_meskj">
+								<div class="mes_title">
+									<label>Message</label>
+									<span>Please provide the following information, we will contact you as soon as possible.</span>
+								</div>
+									<div class="detail-section-con">
+										<div class="caigouform">
+										
+										
+										<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Name</span><input type="text" name="callname" id="callname" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Tle</span><input type="text" name="tel" id="tel" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>E-mail</span><input type="text" name="emaile" id="emaile" /></label>
+											<label for="" class="from1"><span style="letter-spacing:0"><i>*</i>Address</span><input type="text" name="addres" id="addres" /></label>
+											<label for="" class="from2"><span style="letter-spacing:0"><i>*</i>Contents</span><textarea name="" rows="" cols=""  name="beizhu" id="beizhu"></textarea></label>
+											<label for="" class="from3"><button onclick="submessage(0)" style="background-color: #E62D3C;" class="mesbut">Submit</button></label>
+										
+										
+										
+										</div>
+									</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+		
+		
+		
+	</body>
+</html>

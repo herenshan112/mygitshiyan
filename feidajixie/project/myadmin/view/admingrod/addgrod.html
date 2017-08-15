@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加权限</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				
+				<div class="webset_top">
+					<a href="{:url('admingrod/grodindex')}">权限列表</a>
+					<a class="active" href="{:url('admingrod/grodindex',array('action'=>'add'))}">添加权限</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('admingrod/grodindex',array('action'=>'addcl'))}">
+						<div class="webset_input_text">
+							<span>权限名称：</span>
+							<input type="text" name="gradname" id="gradname" placeholder="请输入权限名称" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入权限名称</em>
+						</div>
+						<div class="webset_textarea">
+							<span>权限描述：</span>
+							<textarea name="gradcont" id="gradcont" class="gao_du_textarea"></textarea>
+						</div>
+						<div class='webset_radio'>
+							<span>状态：</span>
+							<input type="radio" name="gradset" id="gradset" value="1" checked>
+							<em>开启</em>
+							<input type="radio" name="gradset" id="gradset" value="0">
+							<em>关闭</em>
+						</div>
+						<div class="webset_textarea hover">
+							<span>权限配置：</span>
+							<div class="grd_list">
+								<div>
+								<label ><em>文章管理</em><input type="checkbox" name="grdbox[]" id="grdbox" value="1" checked /></label>
+								<ul>
+									<li>
+										<a><em>内容列表</em><input type="checkbox" name="grdbox[]" id="grdbox" value="2" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="3" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="4" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="5" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="6" checked /></a>
+									</li>
+									
+									
+									<li>
+										<a><em>栏目列表</em><input type="checkbox" name="grdbox[]" id="grdbox" value="7" checked />=></a>
+										<a><em>添加栏目</em><input type="checkbox" name="grdbox[]" id="grdbox" value="8" checked /></a>
+										<a><em>添加子栏目</em><input type="checkbox" name="grdbox[]" id="grdbox" value="9" checked /></a>
+										<a><em>添加内容</em><input type="checkbox" name="grdbox[]" id="grdbox" value="10" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="11" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="12" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="13" checked /></a>
+									</li>
+									<li>
+										<a><em>回收站</em><input type="checkbox" name="grdbox[]" id="grdbox" value="14" checked />=></a>
+										<a><em>还原</em><input type="checkbox" name="grdbox[]" id="grdbox" value="15" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="16" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="17" checked /></a>
+									</li>
+								</ul>
+								</div>
+								
+								
+								<div>
+								<label class="xxgrds"><em>广告管理</em><input type="checkbox" name="grdbox[]" id="grdbox" value="18" checked /></label>
+								<ul>
+									<li>
+										<a><em>广告类型</em><input type="checkbox" name="grdbox[]" id="grdbox" value="19" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="20" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="21" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="22" checked /></a>
+									</li>
+									
+									<li>
+										<a><em>广告列表</em><input type="checkbox" name="grdbox[]" id="grdbox" value="23" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="24" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="25" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="26" checked /></a>
+									</li>
+								</ul>
+								</div>
+								<div>
+								<label class="xxgrds"><em>友情链接</em><input type="checkbox" name="grdbox[]" id="grdbox" value="27" checked /></label>
+								<ul>
+									
+									<li>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="28" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="29" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="30" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="31" checked /></a>
+									</li>
+								</ul>
+								</div>
+								
+								<div>
+								<label class="xxgrds"><em>客户留言</em><input type="checkbox" name="grdbox[]" id="grdbox" value="52" checked /></label>
+								<ul>
+									
+									<li>
+										<a><em>回复</em><input type="checkbox" name="grdbox[]" id="grdbox" value="53" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="54" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="55" checked /></a>
+									</li>
+								</ul>
+								</div>
+								
+								
+								<div>
+								<label class="xxgrds"><em>系统管理员</em><input type="checkbox" name="grdbox[]" id="grdbox" value="32" checked /></label>
+								<ul>
+									<li>
+										<a><em>管理员列表</em><input type="checkbox" name="grdbox[]" id="grdbox" value="33" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="34" checked /></a>
+										<a><em>修改密码</em><input type="checkbox" name="grdbox[]" id="grdbox" value="35" checked /></a>
+										<a><em>修改资料</em><input type="checkbox" name="grdbox[]" id="grdbox" value="36" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="37" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="38" checked /></a>
+									</li>
+									
+									<li>
+										<a><em>管理权限</em><input type="checkbox" name="grdbox[]" id="grdbox" value="39" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="40" checked /></a>
+										<a><em>配置权限</em><input type="checkbox" name="grdbox[]" id="grdbox" value="41" checked /></a>
+										<a><em>修改资料</em><input type="checkbox" name="grdbox[]" id="grdbox" value="42" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="43" checked /></a>
+										<a><em>查看</em><input type="checkbox" name="grdbox[]" id="grdbox" value="44" checked /></a>
+									</li>
+								</ul>
+								</div>
+								<div>
+								<label class="xxgrds"><em>系统设置</em><input type="checkbox" name="grdbox[]" id="grdbox" value="45" checked /></label>
+								<ul>
+									<li>
+										<a><em>站点设置</em><input type="checkbox" name="grdbox[]" id="grdbox" value="46" checked /></a>
+									</li>
+									
+									<li>
+										<a><em>栏目类型</em><input type="checkbox" name="grdbox[]" id="grdbox" value="47" checked />=></a>
+										<a><em>添加</em><input type="checkbox" name="grdbox[]" id="grdbox" value="48" checked /></a>
+										<a><em>修改</em><input type="checkbox" name="grdbox[]" id="grdbox" value="49" checked /></a>
+										<a><em>删除</em><input type="checkbox" name="grdbox[]" id="grdbox" value="50" checked /></a>
+									</li>
+									<li>
+										<a><em>备份/还原数据库</em><input type="checkbox" name="grdbox[]" id="grdbox" value="51" checked /></a>
+									</li>
+								</ul>
+								</div>
+								
+							</div>
+							
+							
+							
+							
+							
+							
+							
+							
+						</div>
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

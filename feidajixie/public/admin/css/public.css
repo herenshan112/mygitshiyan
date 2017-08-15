@@ -1,0 +1,173 @@
+.control_body{
+	width: 100%;
+	overflow-x: hidden;
+  background-color: #2f4050;
+}
+
+.control_left {
+  background-color: #2f4050;
+  border-color: #2f4050;
+  position: relative;
+}
+.control_left_best {
+  position: fixed;
+  width: 220px;
+  z-index: 2001;
+  height: 100%;
+  transition: width 0.5s;
+  -ms-transform:width 0.5s;
+  -webkit-transform:width 0.5s;
+}
+.control_left_best.active{
+	width:50px;
+}
+/*
+ * 右侧样式
+ */
+.control_right{
+	padding: 0 15px;
+  	position: inherit;
+  	margin: 0 0 0 220px;
+  	background-color: #f3f3f4;
+  	transition: margin 0.5s;
+  	-ms-transform:margin 0.5s;
+  	-webkit-transform:margin 0.5s;
+  	height: 100%;
+  	
+ }
+ .sjval{
+ 	margin-left: -15px;
+ 	margin-right: -15px;
+ }
+ .control_right.active{
+ 	margin: 0 0 0 50px;
+ }
+.control_r_top{
+	border-bottom: 1px solid #e7eaec;
+}
+.control_rt_body{
+	background-color: #f3f3f4;
+	border: 0px
+	z-index:1000;
+	position: relative;
+  min-height: 50px;
+}
+.control_rtb_left{
+	float:left;
+	width: 60%;
+	padding: 13px 0px;
+}
+.ctl_rtb_lbut{
+	padding: 10px 15px 10px 15px;
+	background-color: #1AB394;
+	color: #fff;
+	-ms-border-radius:4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.control_rtb_right{
+	float:right;
+	width: 10%;
+	text-align: left;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #0000AA;
+}
+
+
+.control_t_foot{
+	border-bottom: solid 2px #2f4050;
+	position: relative;
+  	height: 42px;
+  	background: #fafafa;
+  	line-height: 42px;
+}
+.con_tf_leftbut{
+	position: absolute;
+    width: 50px;
+    height: 42px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+    border-right: 1px solid #eee;
+    color: #333;
+    line-height: 42px;
+    cursor: pointer;
+    background-color: #fff;
+}
+.page_tabs {
+  margin-left: 51px;
+  width: 100000px;
+  height: 42px;
+  overflow: hidden;
+}
+.page-tabs .page-tabs-content {
+  float: left;
+}
+
+.page-tabs-content a.active {
+  background: #2f4050;
+  color: #a7b1c2;
+}
+.page-tabs-content a {
+  color: #999;
+}
+.page-tabs-content a {
+  display: block;
+  float: left;
+  border-right: solid 1px #eee;
+  padding: 0 15px;
+}
+.J_menuTab {
+  -webkit-transition: all .3s ease-out 0s;
+  transition: all .3s ease-out 0s;
+}
+.J_menuTab.active:hover{
+	color:#fff;
+}
+.but_close{
+	padding: 0px 1px;
+}
+.con_tf_rightbut{
+	position: absolute;
+    width: 50px;
+    height: 42px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+    border-left: 1px solid #eee;
+    color: #333;
+    line-height: 42px;
+    cursor: pointer;
+    right:51px;
+    background-color: #fff;
+}
+.con_tf_rightbutes{
+	position: absolute;
+    width: 50px;
+    height: 42px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0;
+    border-left: 1px solid #eee;
+    color: #333;
+    line-height: 42px;
+    cursor: pointer;
+    right:0;
+    background-color: #fff;
+}
+.control_r_foot{
+	/*height: calc(100% - 100px);*/
+  	overflow: hidden;
+  	/*background-color: #008000;*/
+}
+.J_iframe{
+	padding: 0px 15px 0 0;
+}
+

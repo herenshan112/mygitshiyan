@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head'}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner'}
+		</div>
+		
+		<!--新闻列表 头部-->
+		<div class="news-list-con">
+			<div class="news-list-nav">
+				<div class="news-list-nav-box">
+					<ul>
+						
+						{volist name='protym' id='protym'}
+							<li {eq name='protym.pty_id' value='$tyid'}class="active"{/eq} style="width: auto; min-width: 150px; padding: 0 25px;"><a href="{:url('news/index',array('tyid'=>$protym['pty_id']))}">{$protym.pty_title}</a></li>
+						{/volist}
+					</ul>
+				</div>
+				</div>
+				
+				<!--新闻列表-->
+				<div class="news-list">
+					<div class="news-list-box">
+					<ul>
+						{volist name='top_list' id='top_list'}
+						<li class="news-hot">
+							<div class="news-list-left"><a href="{:url('news/details',array('id'=>$top_list['cn_id']))}"><img src="{neq name='top_list.cn_smallimg' value=''}/upload/images/{$top_list.cn_smallimg}{else /}/public/admin/images/33.png{/neq}"/></a></div>
+							<div class="news-list-right">
+								<h3><a href="{:url('news/details',array('id'=>$top_list['cn_id']))}">{$top_list.cn_title}</a></h3>
+								<p><a style="color: #666;" href="{:url('news/details',array('id'=>$top_list['cn_id']))}">{php}echo msubstr($top_list['cn_descr'],0,180){/php}</a></p>
+								<a href="{:url('news/details',array('id'=>$top_list['cn_id']))}">More</a>
+								<span>Publish：{$top_list.cn_time|date='Y-m-d',###}</span>
+							</div>
+						</li>
+						{/volist}
+						{volist name='list' id='list'}
+						<li>
+							<div class="news-list-left"><a href="{:url('news/details',array('id'=>$list['cn_id']))}"><img src="{neq name='list.cn_smallimg' value=''}/upload/images/{$list.cn_smallimg}{else /}/public/admin/images/33.png{/neq}"/></a></div>
+							<div class="news-list-right">
+								<h3><a href="{:url('news/details',array('id'=>$list['cn_id']))}">{$list.cn_title}</a></h3>
+								<p><a style="color: #666;" href="{:url('news/details',array('id'=>$list['cn_id']))}">{php}echo msubstr($list['cn_descr'],0,180){/php}</a></p>
+								<a href="{:url('news/details',array('id'=>$list['cn_id']))}">More</a>
+								<span>Publish：{$list.cn_time|date='Y-m-d H:i:s',###}</span>
+							</div>
+						</li>
+						{/volist}
+						
+					</ul>
+					
+					<div class="page">
+							  	<div class="page-con">
+							  		{$pages}
+							  	</div>
+					</div>
+					
+					<div class="clear"></div>
+					
+					</div>
+				</div>
+				
+			
+			
+		</div>
+	
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+	<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        hashnavWatchState: true
+    });
+    var swiper2 = new Swiper('.swiper-container2', {
+        //pagination: '.swiper-pagination2',
+        nextButton: '.swiper-button-next2',
+        prevButton: '.swiper-button-prev2',
+        paginationClickable: true,
+        spaceBetween: 30,
+        //autoplay:3000
+    });
+    </script>
+		
+		
+		
+	</body>
+</html>

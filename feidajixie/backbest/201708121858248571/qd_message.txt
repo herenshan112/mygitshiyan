@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS `#^@_message`;
+CREATE TABLE `#^@_message` (
+  `mes_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `mes_name` varchar(50) DEFAULT NULL COMMENT '联系人',
+  `mes_tel` varchar(20) DEFAULT NULL COMMENT '手机号码',
+  `mes_email` varchar(100) DEFAULT NULL COMMENT '邮箱',
+  `mes_address` varchar(255) DEFAULT NULL COMMENT '联系地址',
+  `mes_cont` mediumtext COMMENT '备注',
+  `mes_time` int(50) NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `mes_setval` smallint(1) DEFAULT '1' COMMENT '状态',
+  `mes_porid` int(11) DEFAULT '0' COMMENT '产品id',
+  `mes_hfcont` mediumtext COMMENT '回复内容给',
+  PRIMARY KEY (`mes_id`),
+  KEY `mes_id` (`mes_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='留言板';
+INSERT INTO `#^@_message` (mes_id,mes_name,mes_tel,mes_email,mes_address,mes_cont,mes_time,mes_setval,mes_porid,mes_hfcont) VALUES ('2','秦东','15069130853','532623622@qq.com','山东济南','测试','1502374416','1','3',NULL),('3','何仁山','15069130853','1@qq.com','北京那个','就是雌激素肯定会尽快','1502425124','1','0',NULL),('4','1','15069130853','3@qq.com','4','5','1502425217','1','0',NULL),('5','撒旦','15069130853','2@163.com','发烧地方','斯蒂芬森公司法定','1502425296','1','0',NULL);
+

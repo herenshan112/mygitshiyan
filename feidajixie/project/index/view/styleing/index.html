@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$webnameval}</title>
+		<meta name="Keywords" content="{$webkeyval}"/>
+		<meta name="Description" content="{$webdesval}"/>
+		{include file='public/js_css'}
+	</head>
+	<body>
+		<!--header-->
+		{include file='public/head'}
+		<!--banenr-->
+		<div class="banner">
+			{include file='public/banner'}
+		</div>
+		
+		<div class="crumb">
+			<div class="crumb-con">
+				<p><i class="iconfont">&#xe600;</i><span>当前位置：</span><a href="{:url('index/index')}">首页</a>- <a href="javascript:;">企业风采</a></p>
+				
+			</div>
+		</div>
+		<!--新闻列表 头部-->
+		<div class="news-list-con">
+			
+				
+				<!--新闻列表-->
+				<div class="news-list">
+					<div class="news-list-box">
+					<ul>
+						
+						{volist name='list' id='list'}
+						<li>
+							<div class="news-list-left"><a href="{:url('myserver/details',array('id'=>$list['cn_id']))}"><img src="{neq name='list.cn_smallimg' value=''}/upload/images/{$list.cn_smallimg}{else /}/public/admin/images/33.png{/neq}"/></a></div>
+							<div class="news-list-right">
+								<h3><a href="{:url('myserver/details',array('id'=>$list['cn_id']))}">{$list.cn_title}</a></h3>
+								<p><a style="color: #666;" href="{:url('myserver/details',array('id'=>$list['cn_id']))}">{php}echo msubstr($list['cn_descr'],0,180){/php}</a></p>
+								<a href="{:url('myserver/details',array('id'=>$list['cn_id']))}">查看更多</a>
+								<span>发布于：{$list.cn_time|date='Y-m-d H:i:s',###}</span>
+							</div>
+						</li>
+						{/volist}
+						
+					</ul>
+					
+					<div class="page">
+							  	<div class="page-con">
+							  		{$pages}
+							  	</div>
+					</div>
+					
+					<div class="clear"></div>
+					
+					</div>
+				</div>
+				
+			
+			
+		</div>
+	
+
+
+		
+
+		
+		{include file='public/link_foot'}
+		
+		{include file='public/foot'}
+		
+		
+	<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        hashnav: true,
+        hashnavWatchState: true
+    });
+    var swiper2 = new Swiper('.swiper-container2', {
+        //pagination: '.swiper-pagination2',
+        nextButton: '.swiper-button-next2',
+        prevButton: '.swiper-button-prev2',
+        paginationClickable: true,
+        spaceBetween: 30,
+        //autoplay:3000
+    });
+    </script>
+		
+		
+		
+	</body>
+</html>

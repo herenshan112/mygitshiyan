@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改个人密码</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				
+				<div class="webset_foot">
+					<form method="post" name="webset" id="webset" action="{:url('admingrod/mycont',array('action'=>'myeitepwdc','id'=>$id))}">
+						
+						<div class="webset_input_text">
+							<span>原密码：</span>
+							<input type="password" name="oldpwd" id="oldpwd" placeholder="请输入原密码" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入原密码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>新密码：</span>
+							<input type="password" name="newpwd" id="newpwd" placeholder="请输入新密码" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入新密码</em>
+						</div>
+						<div class="webset_input_text">
+							<span>确认新密码：</span>
+							<input type="password" name="qrnewpwd" id="qrnewpwd" placeholder="请输入确认新密码" value="">
+							<em><i class="icon-exclamation-sign"></i>请输入确认新密码</em>
+						</div>
+						
+						
+						<div class="buttion_submit">
+							<input type="submit" value="确认提交" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

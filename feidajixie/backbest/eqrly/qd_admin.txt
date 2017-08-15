@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `#^@_admin`;
+CREATE TABLE `#^@_admin` (
+  `ad_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ad_username` varchar(100) NOT NULL COMMENT '用户名',
+  `ad_pwdval` varchar(100) NOT NULL COMMENT '密码',
+  `ad_time` int(30) NOT NULL DEFAULT '0' COMMENT '写入时间',
+  `ad_lasttime` int(30) DEFAULT '0' COMMENT '最后登陆时间',
+  `ad_lastip` varchar(100) DEFAULT NULL COMMENT '最后登陆ip',
+  `ad_grod` int(11) NOT NULL DEFAULT '0' COMMENT '管理级别',
+  `ad_setval` smallint(1) unsigned NOT NULL DEFAULT '1' COMMENT '是否启用',
+  PRIMARY KEY (`ad_id`),
+  UNIQUE KEY `id` (`ad_id`) USING BTREE,
+  UNIQUE KEY `username` (`ad_username`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员表';
+INSERT INTO `#^@_admin` (ad_id,ad_username,ad_pwdval,ad_time,ad_lasttime,ad_lastip,ad_grod,ad_setval) VALUES ('1','admin','2463a85fa69dc826a6b1b0a980f91f22','1502200633','1502261297','127.0.0.1','1','1'),('2','herenshan110','2463a85fa69dc826a6b1b0a980f91f22','1502200634','1502255017','127.0.0.1','2','1');
+

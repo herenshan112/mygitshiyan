@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>栏目列表</title>
+		{include file='public/css_js' /}
+	</head>
+	<body>
+		<div class="pl_body">
+			<div class="pl_cont">
+				<div class="webset_top">
+					<a class="active" href="{:url('pagetype',array('action'=>'list'))}">栏目列表</a>
+					<a href="{:url('pagetype',array('action'=>'add'))}" {php}if(!in_array(8, explode('|',$sesval['grdval']))){echo 'style="display:none"';}{/php}>添加栏目</a>
+					<span class="icon-repeat shuaxin" onclick="webreload()"></span>
+				</div>
+				
+				<div class="webset_list">
+					
+					
+					
+					
+					<div class="type_list">
+						{$typelist}
+						
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		<div class="control_pf_bj" id="fukj">
+        	
+	        <em class="icon-spinner icon-spin icon-5x loading_icon jzcolor" id="load_pf" style="margin: 100px 0 0 100px;"></em>
+	        {include file='public/delte' /}
+		</div>
+		
+		
+	</body>
+</html>
